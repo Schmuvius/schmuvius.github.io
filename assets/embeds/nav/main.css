@@ -1,0 +1,73 @@
+@import url(/assets/css/main.css);
+
+body {
+    overflow: hidden;
+    margin: 0px;
+}
+
+header {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--darkBlue0);
+    height: 30px;
+}
+
+#icon {
+    text-decoration: none;
+    padding-right: 10px;
+    display: block;
+    height: 30px;
+}
+
+#icon img {
+    height: 30px;
+}
+
+.ft-links {
+    height: 15px;
+    position: absolute;
+    top: calc(10px + 5px);
+    left: calc(10px + 30px + 20px);
+}
+
+@media only screen and (max-width: 480px) {
+    .ft-links {
+        display: none;
+    }
+}
+
+.ft-links b {
+    padding-right: 10px;
+}
+
+.ft-links b a {
+    color: white;
+}
+
+#search {
+    width: 200px;
+    position: absolute;
+    top: 10px;
+    height: 30px;
+    right: calc(10px + 30px + 10px);
+}
+
+@media only screen and (max-width: 300px) {
+    #search {
+        display: none;
+    }
+}
+
+#search-button button {
+    width: 30px;
+    position: absolute;
+    top: calc(10px);
+    height: 30px;
+    right: 10px;
+    padding: 5px;
+}
+
+#search-button button img {
+    width: 20px;
+    height: 20px;
+}
