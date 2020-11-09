@@ -10,7 +10,6 @@ header {
     height: 30px;
     position: fixed;
     top: 0px;
-    background: linear-gradient(135deg, var(--blue0), var(--bluple0));
     display: block;
     width: 75%;
     margin-left: calc((25% - 20px) / 2);
