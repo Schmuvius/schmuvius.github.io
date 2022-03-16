@@ -1,7 +1,8 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { FC, InputHTMLAttributes } from 'react';
-import ReactiveZoom from './ReactiveZoom';
+import ReactiveZoom from '../ReactiveZoom';
+import Sun from './components/Sun';
 
 interface PlaygroundProps extends InputHTMLAttributes<HTMLDivElement> {}
 const Playground: FC<PlaygroundProps> = (props) => {
@@ -13,10 +14,7 @@ const Playground: FC<PlaygroundProps> = (props) => {
         zoom: 32,
       }}
     >
-      <mesh>
-        <cylinderGeometry />
-        <meshStandardMaterial flatShading />
-      </mesh>
+      <Sun />
 
       <directionalLight position={[10, 10, 10]} />
       <ambientLight intensity={0.5} />
