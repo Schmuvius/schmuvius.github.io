@@ -1,3 +1,5 @@
+import Playground from 'components/Playground';
+import * as SnappedScroller from 'components/SnappedScroller';
 import useSystemTheme from 'hooks/useSystemTheme';
 import { darkTheme, globalStyles } from 'stitches.config';
 import { container } from './styles';
@@ -12,7 +14,14 @@ const App = () => {
       className={`${
         systemTheme === 'dark' ? darkTheme : undefined
       } ${container()}`}
-    ></div>
+    >
+      <SnappedScroller.Container>
+        <SnappedScroller.Item>
+          <Playground />
+        </SnappedScroller.Item>
+        <SnappedScroller.Item></SnappedScroller.Item>
+      </SnappedScroller.Container>
+    </div>
   );
 };
 export default App;

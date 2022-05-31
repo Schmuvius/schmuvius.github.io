@@ -5,3 +5,9 @@ export const container = css({
   height: '100vh',
   backgroundColor: theme.colors.slate1,
 });
+
+export const titleContainer = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});

@@ -31,4 +31,6 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
   },
+
+  '@import': 'https://fonts.googleapis.com/css?family=Inter&display=swap',
 });
