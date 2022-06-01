@@ -3,12 +3,12 @@ import useObjectTransformation from 'hooks/useObjectTransformation';
 import useRainbow from 'hooks/useRainbow';
 import { useRef } from 'react';
 import { Mesh, MeshStandardMaterial } from 'three';
-import SIZE from '../constants/Size';
+import OBJECT_SIZE from '../constants/Size';
 
 const Sphere = () => {
   const [mesh, physics] = useSphere<Mesh>(() => ({
     mass: 1,
-    args: [SIZE / 2],
+    args: [OBJECT_SIZE / 2],
   }));
   const material = useRef<MeshStandardMaterial>(null!);
 
@@ -17,7 +17,7 @@ const Sphere = () => {
 
   return (
     <mesh ref={mesh}>
-      <icosahedronGeometry args={[SIZE / 2, 2]} />
+      <icosahedronGeometry args={[OBJECT_SIZE / 2, 2]} />
       <meshStandardMaterial ref={material} />
     </mesh>
   );

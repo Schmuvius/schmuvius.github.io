@@ -1,5 +1,4 @@
 import { Physics } from '@react-three/cannon';
-import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import Lighting from './components/Lighting';
 import Name from './components/Name';
@@ -22,8 +21,6 @@ const Playground = () => {
 
         <Surface />
       </Physics>
-
-      <OrbitControls />
     </Canvas>
   );
 };

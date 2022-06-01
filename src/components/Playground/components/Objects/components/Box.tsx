@@ -3,12 +3,12 @@ import useObjectTransformation from 'hooks/useObjectTransformation';
 import useRainbow from 'hooks/useRainbow';
 import { useRef } from 'react';
 import { Mesh, MeshStandardMaterial } from 'three';
-import SIZE from '../constants/Size';
+import OBJECT_SIZE from '../constants/Size';
 
 const Box = () => {
   const [mesh, physics] = useBox<Mesh>(() => ({
     mass: 1,
-    args: [SIZE, SIZE, SIZE],
+    args: [OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE],
   }));
   const material = useRef<MeshStandardMaterial>(null!);
 
@@ -17,7 +17,7 @@ const Box = () => {
 
   return (
     <mesh ref={mesh}>
-      <boxGeometry args={[SIZE, SIZE, SIZE]} />
+      <boxGeometry args={[OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE]} />
       <meshStandardMaterial ref={material} />
     </mesh>
   );

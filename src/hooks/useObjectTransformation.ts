@@ -1,6 +1,6 @@
 import { PublicApi } from '@react-three/cannon';
-import { NAME_BOUNDING_BOX } from 'components/Playground/components/Name';
-import { useEffect } from 'react';
+import { NAME_BOUNDING_BOX_PADDED } from 'components/Playground/components/Name';
+import { useLayoutEffect } from 'react';
 import { Vector2, Vector3 } from 'three';
 import useWorldSpace from './useWorldSpace';
 
@@ -19,12 +19,12 @@ const useObjectTransformation = (physics: PublicApi) => {
     );
     const possiblePosition = new Vector3(worldSpace.x, 0, worldSpace.y);
 
-    if (!NAME_BOUNDING_BOX.containsPoint(possiblePosition)) {
+    if (!NAME_BOUNDING_BOX_PADDED.containsPoint(possiblePosition)) {
       position = possiblePosition;
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     physics.position.set(...position.toArray());
     physics.rotation.set(...rotation.toArray());
   });
