@@ -1,21 +1,27 @@
 import { useThree } from '@react-three/fiber';
+import { Vector2 } from 'three';
 
 /**
  * Goes from -1 to 1 on both axis
  */
-function useWorldSpace(x: number, y: number, z = 0): [number, number, number] {
+function useWorldSpace() {
   const {
     camera,
     gl: { domElement: canvas },
   } = useThree();
-  const boundingClientRect = canvas.getBoundingClientRect();
 
-  const visibleWorldX = boundingClientRect.width / 2 / camera.zoom;
-  const visibleWorldY = boundingClientRect.height / 2 / camera.zoom;
-  const worldX = x * visibleWorldX;
-  const worldY = y * visibleWorldY;
+  const getWorldSpace = (vector: Vector2) => {
+    const boundingClientRect = canvas.getBoundingClientRect();
 
-  return [worldX, worldY, z];
+    const visibleWorldX = boundingClientRect.width / 2 / camera.zoom;
+    const visibleWorldY = boundingClientRect.height / 2 / camera.zoom;
+    const worldX = vector.x * visibleWorldX;
+    const worldY = vector.y * visibleWorldY;
+
+    return new Vector2(worldX, worldY);
+  };
+
+  return getWorldSpace;
 }
 
 export default useWorldSpace;

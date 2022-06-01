@@ -1,25 +1,49 @@
+import { useBox } from '@react-three/cannon';
 import { Text3D } from '@react-three/drei';
 import Inter_Bold from 'assets/fonts/Inter_Bold.json';
+import useRainbow from 'hooks/useRainbow';
 import { useEffect, useRef } from 'react';
-import { Box3, Mesh } from 'three';
+import { Box3, Group, Mesh, MeshStandardMaterial, Vector3 } from 'three';
 
-//https://fonts.gstatic.com/s/inter/v11/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZJhiI2B.woff2
+export const NAME_SIZE = new Vector3(
+  6.199573089862069,
+  1.1393825829633464,
+  0.25,
+);
+export const NAME_BOUNDING_BOX = new Box3(
+  new Vector3(-NAME_SIZE.x / 2, -NAME_SIZE.y / 2, -NAME_SIZE.z / 2),
+  new Vector3(NAME_SIZE.x / 2, NAME_SIZE.y / 2, NAME_SIZE.z / 2),
+);
+
 const Name = () => {
-  const text = useRef<Mesh>(null!);
+  const [text, textPhysics] = useBox<Group>(() => ({
+    mass: 16,
+    args: NAME_SIZE.toArray(),
+    position: [0, NAME_SIZE.z / 2, 0],
+  }));
+  const textMesh = useRef<Mesh>(null!);
+  const material = useRef<MeshStandardMaterial>(null!);
 
+  useRainbow(material);
   useEffect(() => {
-    const boundingBox = new Box3().setFromObject(text.current);
-    const width = boundingBox.max.x - boundingBox.min.x;
-    const height = boundingBox.max.y - boundingBox.min.y;
+    if (text.current) {
+      const boundingBox = new Box3().setFromObject(text.current);
+      const width = boundingBox.max.x - boundingBox.min.x;
+      const height = boundingBox.max.y - boundingBox.min.y;
+      const depth = boundingBox.max.z - boundingBox.min.z;
 
-    text.current.position.set(-width / 2, -height / 2, 0);
+      textMesh.current.position.set(-width / 2, -height / 2, -depth / 2);
+      textPhysics.rotation.set(-Math.PI / 2, 0, 0);
+    }
   });
 
   return (
-    <Text3D font={Inter_Bold as any} ref={text}>
-      TrèsAbhi
-      <meshPhongMaterial color="red" />
-    </Text3D>
+    <group ref={text}>
+      <Text3D font={Inter_Bold as any} ref={textMesh}>
+        TrèsAbhi
+        <meshStandardMaterial ref={material} />
+      </Text3D>
+    </group>
   );
 };
 export default Name;
