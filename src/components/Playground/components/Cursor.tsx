@@ -1,11 +1,11 @@
 import { useCylinder } from '@react-three/cannon';
 import { useThree } from '@react-three/fiber';
 import useScreenToWorldSpace from 'hooks/useScreenToWorldSpace';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Mesh, Vector2 } from 'three';
 
 const Cursor = () => {
-  const [cursor, physics] = useCylinder<Mesh>(() => ({
+  const [, physics] = useCylinder<Mesh>(() => ({
     position: [0, 1000, 0],
     args: [0.5, 0.5, 100],
   }));
@@ -15,7 +15,7 @@ const Cursor = () => {
   const screenToWorldSpace = useScreenToWorldSpace();
 
   let lastPosition = new Vector2(0, 0);
-  let lastTime = performance.now();
+  let lastTime = useRef(performance.now());
 
   useEffect(() => {
     const handlePointerMove = (event: PointerEvent) => {
@@ -27,7 +27,7 @@ const Cursor = () => {
         worldSpace.x - lastPosition.x,
         worldSpace.y - lastPosition.y,
       );
-      const deltaTime = currentTime - lastTime;
+      const deltaTime = currentTime - lastTime.current;
 
       physics.position.set(worldSpace.x, 0, worldSpace.y);
       physics.velocity.set(
@@ -36,7 +36,7 @@ const Cursor = () => {
         deltaPosition.y / deltaTime,
       );
       lastPosition.set(worldSpace.x, worldSpace.y);
-      lastTime = currentTime;
+      lastTime.current = currentTime;
     };
 
     canvas.addEventListener('pointermove', handlePointerMove);
