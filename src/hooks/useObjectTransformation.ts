@@ -1,5 +1,5 @@
 import { PublicApi } from '@react-three/cannon';
-import { NAME_BOUNDING_BOX_PADDED } from 'components/Playground/components/Name';
+import { NAME_BOUNDING_BOX_PADDED } from 'App/components/Playground/components/Name';
 import { useEffect, useRef } from 'react';
 import { Vector2, Vector3 } from 'three';
 import useScreenToWorldSpace from './useScreenToWorldSpace';

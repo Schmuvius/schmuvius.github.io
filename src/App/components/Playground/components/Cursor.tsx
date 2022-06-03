@@ -14,7 +14,7 @@ const Cursor = () => {
   } = useThree();
   const screenToWorldSpace = useScreenToWorldSpace();
 
-  let lastPosition = new Vector2(0, 0);
+  let lastPosition = useRef(new Vector2(0, 0));
   let lastTime = useRef(performance.now());
 
   useEffect(() => {
@@ -24,8 +24,8 @@ const Cursor = () => {
       const worldSpace = screenToWorldSpace(new Vector2(x, y));
       const currentTime = performance.now();
       const deltaPosition = new Vector2(
-        worldSpace.x - lastPosition.x,
-        worldSpace.y - lastPosition.y,
+        worldSpace.x - lastPosition.current.x,
+        worldSpace.y - lastPosition.current.y,
       );
       const deltaTime = currentTime - lastTime.current;
 
@@ -35,16 +35,16 @@ const Cursor = () => {
         0,
         deltaPosition.y / deltaTime,
       );
-      lastPosition.set(worldSpace.x, worldSpace.y);
+      lastPosition.current.set(worldSpace.x, worldSpace.y);
       lastTime.current = currentTime;
     };
 
-    canvas.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointermove', handlePointerMove);
 
     return () => {
-      canvas.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointermove', handlePointerMove);
     };
-  }, []);
+  }, [canvas, lastPosition, physics, screenToWorldSpace]);
 
   return null;
 };

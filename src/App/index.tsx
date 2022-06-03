@@ -1,7 +1,8 @@
-import Playground from 'components/Playground';
 import * as SnappedScroller from 'components/SnappedScroller';
 import useSystemTheme from 'hooks/useSystemTheme';
 import { darkTheme, globalStyles } from 'stitches.config';
+import Playground from './components/Playground';
+import PlaygroundOverlay from './components/PlaygroundOverlay';
 import { container } from './styles';
 
 const App = () => {
@@ -16,8 +17,9 @@ const App = () => {
       } ${container()}`}
     >
       <SnappedScroller.Container>
-        <SnappedScroller.Item>
+        <SnappedScroller.Item style={{ position: 'relative' }}>
           <Playground />
+          <PlaygroundOverlay />
         </SnappedScroller.Item>
         <SnappedScroller.Item></SnappedScroller.Item>
       </SnappedScroller.Container>

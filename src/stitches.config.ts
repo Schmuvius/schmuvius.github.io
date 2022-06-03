@@ -1,4 +1,4 @@
-import { slate, slateDark } from '@radix-ui/colors';
+import { blackA, slate, slateDark, whiteA } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 
 export const {
@@ -16,6 +16,8 @@ export const {
   theme: {
     colors: {
       ...slate,
+      ...whiteA,
+      ...blackA,
     },
   },
 });
