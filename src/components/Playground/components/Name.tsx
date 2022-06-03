@@ -17,7 +17,7 @@ export const NAME_BOUNDING_BOX = new Box3(
 );
 export const NAME_BOUNDING_BOX_PADDED =
   NAME_BOUNDING_BOX.clone().expandByVector(
-    new Vector3(OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE),
+    new Vector3(OBJECT_SIZE * 2, OBJECT_SIZE * 2, OBJECT_SIZE * 2),
   );
 
 const Name = () => {
