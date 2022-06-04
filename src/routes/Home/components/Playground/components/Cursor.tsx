@@ -2,9 +2,12 @@ import { useCylinder } from '@react-three/cannon';
 import { useThree } from '@react-three/fiber';
 import useScreenToWorldSpace from 'hooks/useScreenToWorldSpace';
 import { useEffect, useRef } from 'react';
-import { Mesh, Vector2 } from 'three';
+import { Mesh, PointLight, Vector2 } from 'three';
+
+const LIGHT_HEIGHT = 10;
 
 const Cursor = () => {
+  const light = useRef<PointLight>(null!);
   const [, physics] = useCylinder<Mesh>(() => ({
     position: [0, 1000, 0],
     args: [0.5, 0.5, 100],
@@ -18,9 +21,18 @@ const Cursor = () => {
   let lastTime = useRef(performance.now());
 
   useEffect(() => {
-    const handlePointerMove = (event: PointerEvent) => {
-      const x = (event.clientX / canvas.clientWidth) * 2 - 1;
-      const y = (event.clientY / canvas.clientHeight) * 2 - 1;
+    light.current.shadow.mapSize.width = window.innerWidth * 2;
+    light.current.shadow.mapSize.height = window.innerHeight * 2;
+
+    const handlePointerMove = (event: TouchEvent | PointerEvent) => {
+      const clientX =
+        (event as PointerEvent).clientX ??
+        (event as TouchEvent).touches[0].clientX;
+      const clientY =
+        (event as PointerEvent).clientY ??
+        (event as TouchEvent).touches[0].clientY;
+      const x = (clientX / canvas.clientWidth) * 2 - 1;
+      const y = (clientY / canvas.clientHeight) * 2 - 1;
       const worldSpace = screenToWorldSpace(new Vector2(x, y));
       const currentTime = performance.now();
       const deltaPosition = new Vector2(
@@ -37,15 +49,25 @@ const Cursor = () => {
       );
       lastPosition.current.set(worldSpace.x, worldSpace.y);
       lastTime.current = currentTime;
+      light.current.position.set(worldSpace.x, LIGHT_HEIGHT, worldSpace.y);
     };
 
+    window.addEventListener('touchmove', handlePointerMove);
     window.addEventListener('pointermove', handlePointerMove);
 
     return () => {
+      window.removeEventListener('touchmove', handlePointerMove);
       window.removeEventListener('pointermove', handlePointerMove);
     };
-  }, [canvas, lastPosition, physics, screenToWorldSpace]);
+  });
 
-  return null;
+  return (
+    <pointLight
+      ref={light}
+      intensity={2}
+      position={[0, LIGHT_HEIGHT, 0]}
+      castShadow
+    />
+  );
 };
 export default Cursor;

@@ -1,14 +1,15 @@
 import { PublicApi } from '@react-three/cannon';
-import { NAME_BOUNDING_BOX_PADDED } from 'App/components/Playground/components/Name';
 import { useEffect, useRef } from 'react';
+import { NAME_BOUNDING_BOX_PADDED } from 'routes/Home/components/Playground/components/Name';
+import OBJECT_SIZE from 'routes/Home/components/Playground/components/Objects/constants/Size';
 import { Vector2, Vector3 } from 'three';
 import useScreenToWorldSpace from './useScreenToWorldSpace';
 
 const MIN_Y = 4;
-const MAX_Y = 32;
+const MAX_Y = 12;
 const MAX_ANGULAR_VELOCITY = Math.PI * 2;
-const MIN_SIZE = 0.5;
-const MAX_SIZE = 1.5;
+const MIN_SIZE = OBJECT_SIZE * 0.5;
+const MAX_SIZE = OBJECT_SIZE * 1.5;
 
 const useObjectTransformation = (physics: PublicApi) => {
   const screenToWorldSpace = useScreenToWorldSpace();

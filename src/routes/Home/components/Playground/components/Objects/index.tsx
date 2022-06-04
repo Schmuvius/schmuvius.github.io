@@ -3,7 +3,7 @@ import Box from './components/Box';
 import Cylinder from './components/Cylinder';
 import Sphere from './components/Sphere';
 
-const OBJECTS_PER_UNIT_SQUARED = 1 / 10000;
+const OBJECTS_PER_UNIT_SQUARED = 1 / 20000;
 const objects = [Box, Sphere, Cylinder];
 
 export const Objects = () => {

@@ -44,7 +44,7 @@ const Name = () => {
 
   return (
     <group ref={text}>
-      <Text3D font={Inter_Bold as any} ref={textMesh}>
+      <Text3D castShadow font={Inter_Bold as any} ref={textMesh}>
         TrèsAbhi
         <meshStandardMaterial ref={material} />
       </Text3D>

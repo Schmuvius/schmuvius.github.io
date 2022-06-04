@@ -1,4 +1,4 @@
-import { blackA, slate, slateDark, whiteA } from '@radix-ui/colors';
+import { blackA, slate, whiteA } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 
 export const {
@@ -19,12 +19,6 @@ export const {
       ...whiteA,
       ...blackA,
     },
-  },
-});
-
-export const darkTheme = createTheme('dark', {
-  colors: {
-    ...slateDark,
   },
 });
 

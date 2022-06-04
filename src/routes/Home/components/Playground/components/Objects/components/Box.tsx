@@ -16,7 +16,7 @@ const Box = () => {
   useRainbow(material);
 
   return (
-    <mesh ref={mesh}>
+    <mesh ref={mesh} castShadow>
       <boxGeometry args={[OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE]} />
       <meshStandardMaterial ref={material} />
     </mesh>

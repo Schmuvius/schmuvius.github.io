@@ -20,6 +20,13 @@ const Bounds = () => {
     rotation: [0, -Math.PI / 2, 0],
   })); // right wall
 
-  return null;
+  const material = <meshStandardMaterial color="hsl(240, 80%, 10%)" />;
+
+  return (
+    <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+      {material}
+      <planeGeometry args={[playgroundSpace.x, playgroundSpace.y]} />
+    </mesh>
+  );
 };
 export default Bounds;
