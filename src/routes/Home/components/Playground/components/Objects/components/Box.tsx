@@ -1,14 +1,15 @@
 import { useBox } from '@react-three/cannon';
+import useObjectSize from 'hooks/useObjectSize';
 import useObjectTransformation from 'hooks/useObjectTransformation';
 import useRainbow from 'hooks/useRainbow';
 import { useRef } from 'react';
 import { Mesh, MeshStandardMaterial } from 'three';
-import OBJECT_SIZE from '../constants/Size';
 
 const Box = () => {
+  const size = useObjectSize();
   const [mesh, physics] = useBox<Mesh>(() => ({
     mass: 1,
-    args: [OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE],
+    args: [size, size, size],
   }));
   const material = useRef<MeshStandardMaterial>(null!);
 
@@ -16,8 +17,8 @@ const Box = () => {
   useRainbow(material);
 
   return (
-    <mesh ref={mesh} castShadow>
-      <boxGeometry args={[OBJECT_SIZE, OBJECT_SIZE, OBJECT_SIZE]} />
+    <mesh ref={mesh} castShadow position={[0, -100, 0]}>
+      <boxGeometry args={[size, size, size]} />
       <meshStandardMaterial ref={material} />
     </mesh>
   );

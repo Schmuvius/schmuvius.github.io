@@ -3,9 +3,9 @@ import { MutableRefObject } from 'react';
 import { MeshStandardMaterial } from 'three';
 
 const LIGHTNESS = 0.5;
-const SATURATION = 0.5;
+const SATURATION = 1;
 
-const COLOR_SPEED = 1 / 10000;
+const COLOR_SPEED = 1 / 100000;
 
 const useRainbow = (material: MutableRefObject<MeshStandardMaterial>) => {
   const offset = Math.random() * (1 / COLOR_SPEED);

@@ -5,7 +5,10 @@ import { Mesh } from 'three';
 const Bounds = () => {
   const playgroundSpace = usePlaygroundSpace();
 
-  usePlane<Mesh>(() => ({ rotation: [-Math.PI / 2, 0, 0] })); // floor
+  usePlane<Mesh>(() => ({
+    rotation: [-Math.PI / 2, 0, 0],
+    material: { friction: 100 },
+  })); // floor
   usePlane<Mesh>(() => ({ position: [0, 0, -playgroundSpace.y / 2] })); // top wall
   usePlane<Mesh>(() => ({
     position: [0, 0, playgroundSpace.y / 2],

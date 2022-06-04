@@ -3,7 +3,7 @@ import Box from './components/Box';
 import Cylinder from './components/Cylinder';
 import Sphere from './components/Sphere';
 
-const OBJECTS_PER_UNIT_SQUARED = 1 / 20000;
+const ONE_OBJECT_PER = 20000;
 const objects = [Box, Sphere, Cylinder];
 
 export const Objects = () => {
@@ -11,8 +11,10 @@ export const Objects = () => {
     gl: { domElement: canvasElement },
   } = useThree();
   const objectsCount =
-    canvasElement.width * canvasElement.height * OBJECTS_PER_UNIT_SQUARED;
+    (canvasElement.width * canvasElement.height * 1) / ONE_OBJECT_PER;
   const items: JSX.Element[] = [];
+
+  console.log(Math.floor(objectsCount));
 
   while (items.length < objectsCount) {
     const randomIndex = Math.floor(Math.random() * objects.length);

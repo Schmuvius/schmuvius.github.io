@@ -65,7 +65,7 @@ const Cursor = () => {
     <pointLight
       ref={light}
       intensity={2}
-      position={[0, LIGHT_HEIGHT, 0]}
+      position={[-5, LIGHT_HEIGHT, -5]}
       castShadow
     />
   );

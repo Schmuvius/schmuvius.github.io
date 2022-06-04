@@ -1,14 +1,15 @@
 import { useCylinder } from '@react-three/cannon';
+import useObjectSize from 'hooks/useObjectSize';
 import useObjectTransformation from 'hooks/useObjectTransformation';
 import useRainbow from 'hooks/useRainbow';
 import { useRef } from 'react';
 import { Mesh, MeshStandardMaterial } from 'three';
-import OBJECT_SIZE from '../constants/Size';
 
 const Cylinder = () => {
+  const size = useObjectSize();
   const [mesh, physics] = useCylinder<Mesh>(() => ({
     mass: 1,
-    args: [OBJECT_SIZE / 2, OBJECT_SIZE / 2, OBJECT_SIZE],
+    args: [size / 2, size / 2, size],
   }));
   const material = useRef<MeshStandardMaterial>(null!);
 
@@ -16,10 +17,8 @@ const Cylinder = () => {
   useRainbow(material);
 
   return (
-    <mesh ref={mesh} castShadow>
-      <cylinderGeometry
-        args={[OBJECT_SIZE / 2, OBJECT_SIZE / 2, OBJECT_SIZE, 16]}
-      />
+    <mesh ref={mesh} castShadow position={[0, -100, 0]}>
+      <cylinderGeometry args={[size / 2, size / 2, size, 16]} />
       <meshStandardMaterial ref={material} />
     </mesh>
   );
