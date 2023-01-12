@@ -1,21 +1,22 @@
-import { useState } from 'react';
-import { styled } from 'stitches.config';
+import { StrictMode } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Error404 from 'routes/Error404';
+import Home from 'routes/Home';
+import Layout from 'routes/Layout';
+import Projects from 'routes/Projects';
 
-const Button = styled('button', {
-  position: 'absolute',
-  left: '50%',
-  top: '50%',
-  transform: 'translate(-50%, -50%)',
-  fontSize: '4rem',
-  padding: '2rem',
-});
-
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
-    <Button onClick={() => setCount((state) => state + 1)}>{count}</Button>
+    <StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="*" element={<Error404 />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </StrictMode>
   );
 }
-
-export default App;
