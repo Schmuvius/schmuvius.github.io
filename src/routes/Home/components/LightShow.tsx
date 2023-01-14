@@ -2,12 +2,12 @@ import { random, times } from 'lodash';
 import { ComponentChildren } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
-const BALLS_COUNT = 8;
-const BALL_ORIGIN_RANGE = 15;
+const BALLS_COUNT = 10;
+const BALL_ORIGIN_RANGE = 25;
 const BALL_BREATH_RANGE = 5;
 const BALL_BREATH_TIME_MIN = 5;
 const BALL_BREATH_TIME_MAX = 10;
-const BALL_SIZE_MIN = 5;
+const BALL_SIZE_MIN = 10;
 const BALL_SIZE_MAX = 20;
 
 const Background = styled('div', {
