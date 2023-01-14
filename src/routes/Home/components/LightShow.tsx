@@ -9,6 +9,7 @@ const BREATH_TIME_MIN = 5;
 const BREATH_TIME_MAX = 10;
 const SIZE_MIN = 10;
 const SIZE_MAX = 20;
+const BLUR = 10;
 
 const Background = styled('div', {
   width: '100%',
@@ -17,7 +18,7 @@ const Background = styled('div', {
   top: 0,
   left: 0,
   overflow: 'hidden',
-  filter: 'blur(10vw)',
+  filter: `blur(calc((${BLUR}vw + ${BLUR}vh) / 2))`,
 });
 const Ball = styled('div', {
   position: 'absolute',
