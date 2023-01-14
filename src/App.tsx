@@ -1,5 +1,5 @@
 import 'App.css';
-import { StrictMode } from 'react';
+import { StrictMode } from 'preact/compat';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Error404 from 'routes/Error404';
 import Home from 'routes/Home';

@@ -1,5 +1,5 @@
 import { random, sample, times } from 'lodash';
-import { ReactNode } from 'react';
+import { ComponentChildren } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
 const BALLS_COUNT = 8;
@@ -43,7 +43,7 @@ const Ball = styled('div', {
 
 export default function LightShow() {
   // 🤨
-  const balls: ReactNode[] = [];
+  const balls: ComponentChildren[] = [];
 
   times(BALLS_COUNT, (index) => {
     const even = index % 2 === 0;
