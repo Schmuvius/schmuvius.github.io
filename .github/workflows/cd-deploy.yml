@@ -1,4 +1,4 @@
-name: CI Build
+name: CD Deploy
 
 on: [push, pull_request]
 
