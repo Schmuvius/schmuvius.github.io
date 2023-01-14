@@ -1,4 +1,4 @@
-import { random, sample, times } from 'lodash';
+import { random, times } from 'lodash';
 import { ComponentChildren } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
@@ -7,6 +7,8 @@ const BALL_ORIGIN_RANGE = 15;
 const BALL_BREATH_RANGE = 5;
 const BALL_BREATH_TIME_MIN = 5;
 const BALL_BREATH_TIME_MAX = 10;
+const BALL_SIZE_MIN = 5;
+const BALL_SIZE_MAX = 20;
 
 const Background = styled('div', {
   width: '100%',
@@ -15,7 +17,7 @@ const Background = styled('div', {
   top: 0,
   left: 0,
   overflow: 'hidden',
-  filter: 'blur(5rem)',
+  filter: 'blur(10vw)',
 });
 const Ball = styled('div', {
   position: 'absolute',
@@ -31,12 +33,6 @@ const Ball = styled('div', {
       secondary: {
         backgroundColor: theme.colors.componentBackgroundSolid_accentSecondary,
       },
-    },
-
-    size: {
-      // large: { width: '20rem', height: '20rem' },
-      medium: { width: '10rem', height: '10rem' },
-      small: { width: '5rem', height: '5rem' },
     },
   },
 });
@@ -63,6 +59,7 @@ export default function LightShow() {
       },
       '50%': { top: `${topOrigin + BALL_BREATH_RANGE * (even ? 1 : -1)}%` },
     });
+    const size = random(BALL_SIZE_MIN, BALL_SIZE_MAX, true);
 
     const CustomBall = styled(Ball, {
       left: `${leftOrigin}%`,
@@ -76,10 +73,11 @@ export default function LightShow() {
         BALL_BREATH_TIME_MAX,
         true,
       )}s infinite`,
+      width: `${size}%`,
+      height: `${size}%`,
 
       defaultVariants: {
         color: even ? 'primary' : 'secondary',
-        size: sample(['medium', 'small']),
       },
     });
 
