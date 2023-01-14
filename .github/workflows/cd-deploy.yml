@@ -43,6 +43,7 @@ jobs:
       - name: Archive dist
         uses: actions/upload-artifact@v3
         with:
+          name: github-pages
           path: dist
   deploy:
     name: Deploy
