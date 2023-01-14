@@ -2,13 +2,13 @@ import { random, times } from 'lodash';
 import { ComponentChildren } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
-const BALLS_COUNT = 10;
-const BALL_ORIGIN_RANGE = 25;
-const BALL_BREATH_RANGE = 5;
-const BALL_BREATH_TIME_MIN = 5;
-const BALL_BREATH_TIME_MAX = 10;
-const BALL_SIZE_MIN = 10;
-const BALL_SIZE_MAX = 20;
+const COUNT = 10;
+const ORIGIN_RANGE = 25;
+const BREATH_RANGE = 5;
+const BREATH_TIME_MIN = 5;
+const BREATH_TIME_MAX = 10;
+const SIZE_MIN = 10;
+const SIZE_MAX = 20;
 
 const Background = styled('div', {
   width: '100%',
@@ -41,36 +41,36 @@ export default function LightShow() {
   // 🤨
   const balls: ComponentChildren[] = [];
 
-  times(BALLS_COUNT, (index) => {
+  times(COUNT, (index) => {
     const even = index % 2 === 0;
-    const leftOrigin = 50 + (Math.random() * 2 - 1) * BALL_ORIGIN_RANGE;
-    const topOrigin = 50 + (Math.random() * 2 - 1) * BALL_ORIGIN_RANGE;
+    const leftOrigin = 50 + (Math.random() * 2 - 1) * ORIGIN_RANGE;
+    const topOrigin = 50 + (Math.random() * 2 - 1) * ORIGIN_RANGE;
     const animationX = keyframes({
       '0%, 100%': {
-        left: `${leftOrigin + BALL_BREATH_RANGE * (even ? -1 : 1)}%`,
+        left: `${leftOrigin + BREATH_RANGE * (even ? -1 : 1)}%`,
       },
       '50%': {
-        left: `${leftOrigin + BALL_BREATH_RANGE * (even ? 1 : -1)}%`,
+        left: `${leftOrigin + BREATH_RANGE * (even ? 1 : -1)}%`,
       },
     });
     const animationY = keyframes({
       '0%, 100%': {
-        top: `${topOrigin + BALL_BREATH_RANGE * (even ? -1 : 1)}%`,
+        top: `${topOrigin + BREATH_RANGE * (even ? -1 : 1)}%`,
       },
-      '50%': { top: `${topOrigin + BALL_BREATH_RANGE * (even ? 1 : -1)}%` },
+      '50%': { top: `${topOrigin + BREATH_RANGE * (even ? 1 : -1)}%` },
     });
-    const size = random(BALL_SIZE_MIN, BALL_SIZE_MAX, true);
+    const size = random(SIZE_MIN, SIZE_MAX, true);
 
     const CustomBall = styled(Ball, {
       left: `${leftOrigin}%`,
       top: `${topOrigin}%`,
       animation: `${animationX} ${random(
-        BALL_BREATH_TIME_MIN,
-        BALL_BREATH_TIME_MAX,
+        BREATH_TIME_MIN,
+        BREATH_TIME_MAX,
         true,
       )}s infinite, ${animationY} ${random(
-        BALL_BREATH_TIME_MIN,
-        BALL_BREATH_TIME_MAX,
+        BREATH_TIME_MIN,
+        BREATH_TIME_MAX,
         true,
       )}s infinite`,
       width: `${size}%`,
