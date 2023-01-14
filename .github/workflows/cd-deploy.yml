@@ -43,7 +43,6 @@ jobs:
       - name: Archive dist
         uses: actions/upload-artifact@v3
         with:
-          name: dist
           path: dist
   deploy:
     name: Deploy
