@@ -1,3 +1,4 @@
+import 'App.css';
 import { StrictMode } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Error404 from 'routes/Error404';
