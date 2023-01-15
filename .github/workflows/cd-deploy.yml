@@ -1,6 +1,9 @@
 name: CD Deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
