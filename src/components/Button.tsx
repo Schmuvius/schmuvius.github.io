@@ -72,5 +72,10 @@ const Button = styled('div', {
       },
     },
   ],
+
+  defaultVariants: {
+    // TODO: add the rest
+    disabled: false,
+  },
 });
 export default Button;
