@@ -10,9 +10,12 @@ const ContentWrapper = styled('div', {
   height: '100%',
   position: 'relative',
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+});
+const Content = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
 });
 const LightShow = styled(LightShowPrimitive, {
   width: '100%',
@@ -46,19 +49,21 @@ export default function Home() {
   return (
     <LightShow>
       <ContentWrapper>
-        <Title>TrèsAbhi</Title>
-        <Actions>
-          <Link to="/docs">
-            <Button type="solid" color="accentSecondary">
-              Docs
-              <ReaderIcon />
+        <Content>
+          <Title>TrèsAbhi</Title>
+          <Actions>
+            <Link to="/docs">
+              <Button type="solid" color="accentSecondary">
+                Docs
+                <ReaderIcon />
+              </Button>
+            </Link>
+            <Button disabled type="solid" color="accentPrimary">
+              Projects
+              <CaretRightIcon />
             </Button>
-          </Link>
-          <Button disabled type="solid" color="accentPrimary">
-            Projects
-            <CaretRightIcon />
-          </Button>
-        </Actions>
+          </Actions>
+        </Content>
       </ContentWrapper>
     </LightShow>
   );

@@ -1,5 +1,5 @@
 import { random, times } from 'lodash';
-import { ComponentChildren } from 'preact';
+import { ComponentChild } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
 export interface LightShowProps extends HTMLDivElement {
@@ -50,7 +50,7 @@ export default function LightShow({
   ...props
 }: LightShowProps) {
   // 🤨
-  const balls: ComponentChildren[] = [];
+  const balls: ComponentChild[] = [];
 
   times(count, (index) => {
     const even = index % 2 === 0;
