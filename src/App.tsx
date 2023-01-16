@@ -1,6 +1,6 @@
 import 'App.css';
 import { StrictMode } from 'preact/compat';
-import Router from 'router';
+import Router from 'Router';
 import { styled, theme } from 'stitches.config';
 
 const AppWrapper = styled('div', {

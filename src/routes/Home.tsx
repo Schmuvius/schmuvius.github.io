@@ -1,4 +1,11 @@
-import { CaretRightIcon, ReaderIcon } from '@radix-ui/react-icons';
+import {
+  CaretRightIcon,
+  DiscordLogoIcon,
+  DotFilledIcon,
+  GitHubLogoIcon,
+  ReaderIcon,
+  TwitterLogoIcon,
+} from '@radix-ui/react-icons';
 import ButtonPrimitive from 'components/Button';
 import LightShowPrimitive from 'components/LightShow';
 import Title from 'components/Title';
@@ -44,6 +51,28 @@ const Link = styled(LinkPrimitive, {
   flex: 1,
   textDecoration: 'none',
 });
+const Socials = styled('div', {
+  display: 'flex',
+  gap: theme.space.gapRelatedMajor,
+  position: 'absolute',
+  bottom: '2rem',
+  color: theme.colors.textLowContrast,
+
+  '& svg': {
+    width: '1em',
+    height: '1em',
+  },
+});
+const Social = styled('a', {
+  color: theme.colors.textLowContrast,
+  display: 'flex',
+  gap: theme.space.gapRelated,
+  textDecoration: 'none',
+
+  '&:hover': {
+    color: theme.colors.textHighContrast,
+  },
+});
 
 export default function Home() {
   return (
@@ -52,18 +81,36 @@ export default function Home() {
         <Content>
           <Title>TrèsAbhi</Title>
           <Actions>
-            <Link to="/docs">
-              <Button type="solid" color="accentSecondary">
-                Docs
-                <ReaderIcon />
+            <Button disabled type="solid" color="accentSecondary">
+              Docs
+              <ReaderIcon />
+            </Button>
+            <Link to="/projects">
+              <Button type="solid" color="accentPrimary">
+                Projects
+                <CaretRightIcon />
               </Button>
             </Link>
-            <Button disabled type="solid" color="accentPrimary">
-              Projects
-              <CaretRightIcon />
-            </Button>
           </Actions>
         </Content>
+
+        <Socials>
+          <Social target="_blank" href="https://discord.gg/nDt7AjGJQH">
+            <DiscordLogoIcon /> Discord
+          </Social>
+
+          <DotFilledIcon />
+
+          <Social target="_blank" href="https://twitter.com/TresAbhi_">
+            <TwitterLogoIcon /> Twitter
+          </Social>
+
+          <DotFilledIcon />
+
+          <Social target="_blank" href="https://github.com/tresabhi">
+            <GitHubLogoIcon /> GitHub
+          </Social>
+        </Socials>
       </ContentWrapper>
     </LightShow>
   );
