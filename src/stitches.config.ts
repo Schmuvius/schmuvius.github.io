@@ -31,6 +31,7 @@ export const {
     fontSizes: {
       64: '4rem',
       14: '0.875rem',
+      16: '1rem',
     },
 
     space: {

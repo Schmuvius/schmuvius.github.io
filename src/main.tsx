@@ -1,5 +1,10 @@
 import App from 'App';
-import { StrictMode } from 'preact/compat';
 import { render } from 'preact';
+import { StrictMode } from 'preact/compat';
 
-render(<App />, document.getElementById('root') as HTMLDivElement);
+render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById('root') as HTMLDivElement,
+);
