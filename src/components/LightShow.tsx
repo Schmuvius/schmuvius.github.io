@@ -15,6 +15,7 @@ export interface LightShowProps extends HTMLDivElement {
 
 const Container = styled('div', {
   position: 'relative',
+  overflow: 'hidden',
 });
 const Content = styled('div', {
   position: 'absolute',
@@ -86,8 +87,8 @@ export default function LightShow({
             breathingTimeMax,
             true,
           )}s infinite`,
-          width: `${size}%`,
-          height: `${size}%`,
+          width: `${size}vw`,
+          height: `${size}vh`,
           backgroundColor: even
             ? theme.colors.componentBackgroundSolid_accentPrimary
             : theme.colors.componentBackgroundSolid_accentSecondary,

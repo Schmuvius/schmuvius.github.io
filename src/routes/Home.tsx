@@ -1,9 +1,9 @@
 import {
-  CaretRightIcon,
+  Component1Icon,
   DiscordLogoIcon,
   DotFilledIcon,
   GitHubLogoIcon,
-  ReaderIcon,
+  RocketIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons';
 import ButtonPrimitive from 'components/Button';
@@ -82,13 +82,13 @@ export default function Home() {
           <Title>TrèsAbhi</Title>
           <Actions>
             <Button disabled type="solid" color="accentSecondary">
-              Docs
-              <ReaderIcon />
+              Primitives
+              <Component1Icon />
             </Button>
             <Link to="/projects">
               <Button type="solid" color="accentPrimary">
                 Projects
-                <CaretRightIcon />
+                <RocketIcon />
               </Button>
             </Link>
           </Actions>

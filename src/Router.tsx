@@ -9,7 +9,9 @@ export default function Router() {
         <Route path="/">
           <Route index element={<Home />} />
 
-          <Route path="projects" element={<ProjectsLayout />} />
+          <Route path="projects/" element={<ProjectsLayout />}>
+            <Route path=":project" />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
