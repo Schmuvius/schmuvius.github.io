@@ -10,7 +10,8 @@ const Wrapper = styled('div', {
   height: '100%',
 });
 const Navbar = styled('div', {
-  borderBottom: `0.0625rem solid ${theme.colors.componentNonInteractiveBorder}`,
+  backgroundColor: theme.colors.appBackground2,
+  borderBottom: theme.borderStyles.borderNonInteractive,
   display: 'flex',
   padding: `0 ${theme.space.paddingMajor}`,
   width: '100%',
@@ -29,7 +30,7 @@ const QuickLinks = styled('div', {
   gap: theme.space.gapUnrelatedMajor,
 });
 const QuickLink = styled(NavLink, {
-  fontSize: theme.fontSizes[16],
+  fontSize: theme.fontSizes.paragraph,
   color: theme.colors.textLowContrast,
   textDecoration: 'none',
 
@@ -46,8 +47,8 @@ const Path = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   color: theme.colors.textLowContrast,
-  gap: theme.space.gapRelated,
-  fontSize: theme.fontSizes[16],
+  gap: theme.space.gapRelatedRegular,
+  fontSize: theme.fontSizes.paragraph,
 });
 const PathItem = styled('span', {
   '& svg': {
@@ -58,6 +59,9 @@ const PathItem = styled('span', {
   '&::first-letter': {
     textTransform: 'capitalize',
   },
+});
+const OutletWrapper = styled('div', {
+  flex: 1,
 });
 
 export default function ProjectsLayout() {
@@ -94,7 +98,9 @@ export default function ProjectsLayout() {
         </QuickLinks>
       </Navbar>
 
-      <Outlet />
+      <OutletWrapper>
+        <Outlet />
+      </OutletWrapper>
     </Wrapper>
   );
 }

@@ -1,7 +1,7 @@
 import { styled, theme } from 'stitches.config';
 
 const Title = styled('span', {
-  fontSize: theme.fontSizes[64],
+  fontSize: theme.fontSizes.title,
   color: theme.colors.textHighContrast,
   fontWeight: 'bold',
 });

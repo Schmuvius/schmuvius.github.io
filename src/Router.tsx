@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from 'routes/Home';
+import Projects from 'routes/projects/Projects';
 import ProjectsLayout from 'routes/projects/ProjectsLayout';
 
 export default function Router() {
@@ -10,7 +11,7 @@ export default function Router() {
           <Route index element={<Home />} />
 
           <Route path="projects/" element={<ProjectsLayout />}>
-            <Route path=":project" />
+            <Route index element={<Projects />} />
           </Route>
         </Route>
       </Routes>

@@ -33,7 +33,7 @@ const Button = styled(ButtonPrimitive, {
   alignItems: 'center',
   justifyContent: 'center',
   flex: 1,
-  gap: theme.space.gapRelated,
+  gap: theme.space.gapRelatedRegular,
 
   '&': {
     svg: {
@@ -66,7 +66,7 @@ const Socials = styled('div', {
 const Social = styled('a', {
   color: theme.colors.textLowContrast,
   display: 'flex',
-  gap: theme.space.gapRelated,
+  gap: theme.space.gapRelatedRegular,
   textDecoration: 'none',
 
   '&:hover': {

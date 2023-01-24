@@ -1,7 +1,7 @@
 import { styled, theme } from 'stitches.config';
 
 const Button = styled('div', {
-  padding: theme.space.padding,
+  padding: theme.space.paddingRegular,
   borderRadius: theme.radii.regular,
   transition: theme.transitions.regular,
   userSelect: 'none',
@@ -33,7 +33,7 @@ const Button = styled('div', {
       color: 'accentPrimary',
 
       css: {
-        backgroundColor: theme.colors.componentBackgroundSolid_accentPrimary,
+        backgroundColor: theme.colors.solidBackground_accentPrimary,
         color: theme.colors.textHighContrast_accentPrimary,
       },
     },
@@ -44,8 +44,7 @@ const Button = styled('div', {
 
       css: {
         '&:hover': {
-          backgroundColor:
-            theme.colors.componentBackgroundSolidHover_accentPrimary,
+          backgroundColor: theme.colors.componentSolidHovered_accentPrimary,
         },
       },
     },
@@ -55,7 +54,7 @@ const Button = styled('div', {
       color: 'accentSecondary',
 
       css: {
-        backgroundColor: theme.colors.componentBackgroundSolid_accentSecondary,
+        backgroundColor: theme.colors.solidBackground_accentSecondary,
         color: theme.colors.textHighContrast_accentSecondary,
       },
     },
@@ -66,8 +65,7 @@ const Button = styled('div', {
 
       css: {
         '&:hover': {
-          backgroundColor:
-            theme.colors.componentBackgroundSolidHover_accentSecondary,
+          backgroundColor: theme.colors.componentSolidHovered_accentSecondary,
         },
       },
     },
