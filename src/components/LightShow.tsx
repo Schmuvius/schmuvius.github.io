@@ -90,7 +90,7 @@ export default function LightShow({
           width: `${size}vw`,
           height: `${size}vh`,
           backgroundColor: even
-            ? theme.colors.solidBackground_accentPrimary
+            ? theme.colors.solidBackground_accent
             : theme.colors.solidBackground_accentSecondary,
         }}
       />,

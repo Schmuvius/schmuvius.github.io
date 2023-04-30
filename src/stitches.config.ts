@@ -23,7 +23,7 @@ export const {
   theme: {
     colors: {
       ...createColors(mauveDark),
-      ...createColors(indigoDark, 'accentPrimary'),
+      ...createColors(indigoDark, 'accent'),
       ...createColors(purpleDark, 'accentSecondary'),
     },
     fontSizes: {
@@ -36,7 +36,7 @@ export const {
     radii: createRadii(),
     borderStyles: {
       ...createBordersStyles(mauveDark),
-      ...createBordersStyles(indigoDark, 'accentPrimary'),
+      ...createBordersStyles(indigoDark, 'accent'),
       ...createBordersStyles(purpleDark, 'accentSecondary'),
     },
 

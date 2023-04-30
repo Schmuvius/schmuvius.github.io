@@ -1,12 +1,11 @@
 import {
-  Component1Icon,
   DiscordLogoIcon,
   DotFilledIcon,
   GitHubLogoIcon,
   RocketIcon,
   TwitterLogoIcon,
 } from '@radix-ui/react-icons';
-import ButtonPrimitive from 'components/Button';
+import ButtonPrimitive from 'components/HeroButton';
 import LightShowPrimitive from 'components/LightShow';
 import Title from 'components/Title';
 import { Link as LinkPrimitive } from 'react-router-dom';
@@ -23,16 +22,16 @@ const ContentWrapper = styled('div', {
 const Content = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  gap: theme.space.gapRelatedMajor,
 });
 const LightShow = styled(LightShowPrimitive, {
   width: '100%',
   height: '100%',
 });
-const Button = styled(ButtonPrimitive, {
+const HeroButton = styled(ButtonPrimitive, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  flex: 1,
   gap: theme.space.gapRelatedRegular,
 
   '&': {
@@ -45,11 +44,17 @@ const Button = styled(ButtonPrimitive, {
 const Actions = styled('div', {
   display: 'flex',
   gap: theme.space.gapRelatedMajor,
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 const Link = styled(LinkPrimitive, {
   display: 'flex',
   flex: 1,
   textDecoration: 'none',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  '&:focus': { outline: 'none' },
 });
 const Socials = styled('div', {
   display: 'flex',
@@ -80,16 +85,12 @@ export default function Home() {
       <ContentWrapper>
         <Content>
           <Title>TrèsAbhi</Title>
+
           <Actions>
-            <Button disabled type="solid" color="accentSecondary">
-              Primitives
-              <Component1Icon />
-            </Button>
             <Link to="/projects">
-              <Button type="solid" color="accentPrimary">
-                Projects
-                <RocketIcon />
-              </Button>
+              <HeroButton>
+                Projects <RocketIcon />
+              </HeroButton>
             </Link>
           </Actions>
         </Content>
