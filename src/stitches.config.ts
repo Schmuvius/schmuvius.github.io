@@ -1,10 +1,12 @@
 import { indigoDark, mauveDark, purpleDark } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 import {
-  createBordersStyles,
+  createBorderStyles,
   createColors,
   createFontSizes,
+  createFontWeights,
   createRadii,
+  createSizes,
   createSpaces,
 } from 'bepaint';
 
@@ -35,13 +37,17 @@ export const {
     space: createSpaces(),
     radii: createRadii(),
     borderStyles: {
-      ...createBordersStyles(mauveDark),
-      ...createBordersStyles(indigoDark, 'accent'),
-      ...createBordersStyles(purpleDark, 'accentSecondary'),
+      ...createBorderStyles(mauveDark),
+      ...createBorderStyles(indigoDark, undefined, 'accent'),
+      ...createBorderStyles(purpleDark, undefined, 'accentSecondary'),
     },
 
     transitions: {
       regular: '0.25s',
     },
+
+    sizes: createSizes(),
+
+    fontWeights: createFontWeights(),
   },
 });

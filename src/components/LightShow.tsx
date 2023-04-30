@@ -1,4 +1,5 @@
-import { random, times } from 'lodash';
+import random from 'lodash.random';
+import times from 'lodash.times';
 import { ComponentChild } from 'preact';
 import { keyframes, styled, theme } from 'stitches.config';
 
