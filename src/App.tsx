@@ -15,11 +15,14 @@ const AppWrapper = styled('div', {
 const LightShow = styled(LightShowPrimitive, {
   width: '100%',
   height: '100%',
+  boxSizing: 'border-box',
   padding: '0 2rem',
 });
 const LightShowContent = styled('div', {
   margin: 'auto',
   height: '100%',
+  width: '100%',
+  boxSizing: 'border-box',
   maxWidth: `${MAX_COLUMNS * COLUMN_WIDTH + (MAX_COLUMNS - 1)}rem`,
 });
 

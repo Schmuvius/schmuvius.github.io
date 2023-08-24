@@ -1,10 +1,12 @@
 import {
   CaretDownIcon,
   CaretUpIcon,
+  CheckIcon,
   MagnifyingGlassIcon,
 } from '@radix-ui/react-icons';
 import { useState } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
+import { FILTER_NAMES, useApp } from 'stores/app';
 
 const Container = styled('div', {
   backgroundColor: theme.colors.componentInteractive,
@@ -12,6 +14,7 @@ const Container = styled('div', {
   flex: 1,
   borderRadius: '35px',
   display: 'flex',
+  position: 'relative',
 });
 const InputContainer = styled('div', {
   display: 'flex',
@@ -37,7 +40,9 @@ const Input = styled('input', {
 
   '&::placeholder': { color: theme.colors.textLowContrast },
 });
-const DropdownContainer = styled('div', {
+const DropdownTrigger = styled('button', {
+  backgroundColor: 'transparent',
+  border: 'none',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -61,9 +66,55 @@ const DropdownText = styled('span', {
   fontSize: theme.fontSizes.paragraph,
   color: theme.colors.textHighContrast,
 });
+const Dropdown = styled('div', {
+  position: 'absolute',
+  top: '100%',
+  right: 0,
+  transform: `translateY(${theme.space.gapRelatedMajor})`,
+  backgroundColor: theme.colors.componentInteractive,
+  border: theme.borderStyles.interactive,
+  borderRadius: theme.radii.regular,
+  padding: theme.space.paddingMajor,
+  display: 'flex',
+  flexDirection: 'column',
+});
+const DropdownItem = styled('button', {
+  textAlign: 'left',
+  padding: theme.space.paddingRegular,
+  fontSize: theme.fontSizes.paragraph,
+  cursor: 'pointer',
+  border: 'none',
+  borderRadius: theme.radii.regular,
+  color: theme.colors.textHighContrast,
+  backgroundColor: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  gap: theme.space.gapRelatedRegular,
+
+  '&:hover': {
+    backgroundColor: theme.colors.componentInteractiveHover,
+  },
+  '&:focus, &:active': {
+    backgroundColor: theme.colors.componentInteractiveActive,
+  },
+});
+const DropdownSelectIcon = styled(CheckIcon, {
+  width: '1rem',
+  height: '1rem',
+  color: theme.colors.textHighContrast,
+
+  variants: {
+    selected: {
+      false: {
+        opacity: 0,
+      },
+    },
+  },
+});
 
 export default function Search() {
-  const [opened, setOpened] = useState(false);
+  const [open, setOpen] = useState(false);
+  const currentFilter = useApp((state) => state.filter);
 
   return (
     <Container>
@@ -72,10 +123,31 @@ export default function Search() {
         <Input placeholder="Search" />
       </InputContainer>
 
-      <DropdownContainer onClick={() => setOpened((state) => !state)}>
-        <DropdownText>Resource packs</DropdownText>
-        {opened ? <DropdownIconUp /> : <DropdownIconDown />}
-      </DropdownContainer>
+      <DropdownTrigger onClick={() => setOpen((state) => !state)}>
+        <DropdownText>{FILTER_NAMES[currentFilter]}</DropdownText>
+        {open ? <DropdownIconUp /> : <DropdownIconDown />}
+      </DropdownTrigger>
+
+      {open && (
+        <Dropdown>
+          {Object.entries(FILTER_NAMES).map(([filter, name]) => {
+            const filterInt = parseInt(filter, 10);
+
+            return (
+              <DropdownItem
+                key={filter}
+                onClick={() => {
+                  useApp.setState({ filter: filterInt });
+                  setOpen(false);
+                }}
+              >
+                <DropdownSelectIcon selected={currentFilter === filterInt} />
+                {name}
+              </DropdownItem>
+            );
+          })}
+        </Dropdown>
+      )}
     </Container>
   );
 }
