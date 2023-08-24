@@ -15,6 +15,10 @@ const Container = styled('div', {
   borderRadius: '1rem',
   display: 'flex',
   position: 'relative',
+
+  '@verticalNavbar': {
+    width: '100%',
+  },
 });
 const InputContainer = styled('div', {
   display: 'flex',

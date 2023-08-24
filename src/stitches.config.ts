@@ -50,4 +50,8 @@ export const {
 
     fontWeights: createFontWeights(),
   },
+
+  media: {
+    verticalNavbar: '(max-width: 35rem)',
+  },
 });

@@ -7,6 +7,10 @@ const Container = styled('div', {
   gap: '2rem',
   alignItems: 'center',
   justifyContent: 'center',
+
+  '@verticalNavbar': {
+    flexDirection: 'column',
+  },
 });
 const Logo = styled('img', {
   width: '10rem',
