@@ -19,7 +19,8 @@
     "bepaint": "^0.1.0-beta.3",
     "lodash.random": "^3.2.0",
     "lodash.times": "^4.3.2",
-    "preact": "^10.11.3"
+    "preact": "^10.11.3",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
