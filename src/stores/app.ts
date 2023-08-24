@@ -2,12 +2,16 @@ import { create } from 'zustand';
 
 export enum Filter {
   All,
-  ResourcePack,
+  ResourcePacks,
+  Bots,
+  Apps,
 }
 
 export const FILTER_NAMES: Record<Filter, string> = {
   [Filter.All]: 'All',
-  [Filter.ResourcePack]: 'Resource packs',
+  [Filter.ResourcePacks]: 'Resource packs',
+  [Filter.Bots]: 'Bots',
+  [Filter.Apps]: 'Apps',
 };
 
 export interface UseApp {

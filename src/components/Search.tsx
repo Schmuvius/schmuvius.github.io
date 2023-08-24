@@ -12,7 +12,7 @@ const Container = styled('div', {
   backgroundColor: theme.colors.componentInteractive,
   border: theme.borderStyles.interactive,
   flex: 1,
-  borderRadius: '35px',
+  borderRadius: '1rem',
   display: 'flex',
   position: 'relative',
 });
@@ -37,6 +37,8 @@ const Input = styled('input', {
   backgroundColor: 'transparent',
   fontSize: theme.fontSizes.input,
   color: theme.colors.textHighContrast,
+  width: 0,
+  textOverflow: 'ellipsis',
 
   '&::placeholder': { color: theme.colors.textLowContrast },
 });
@@ -73,8 +75,8 @@ const Dropdown = styled('div', {
   transform: `translateY(${theme.space.gapRelatedMajor})`,
   backgroundColor: theme.colors.componentInteractive,
   border: theme.borderStyles.interactive,
-  borderRadius: theme.radii.regular,
-  padding: theme.space.paddingMajor,
+  borderRadius: '1rem',
+  padding: theme.space.paddingRegular,
   display: 'flex',
   flexDirection: 'column',
 });
@@ -84,7 +86,7 @@ const DropdownItem = styled('button', {
   fontSize: theme.fontSizes.paragraph,
   cursor: 'pointer',
   border: 'none',
-  borderRadius: theme.radii.regular,
+  borderRadius: '1rem',
   color: theme.colors.textHighContrast,
   backgroundColor: 'transparent',
   display: 'flex',
