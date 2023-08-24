@@ -15,7 +15,7 @@ import { styled, theme } from 'stitches.config';
 const AppWrapper = styled('div', {
   backgroundColor: theme.colors.appBackground1,
   width: '100vw',
-  height: '100vh',
+  height: '100dvh',
   position: 'relative',
 });
 const ContentWrapper = styled('div', {
