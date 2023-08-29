@@ -3,11 +3,17 @@ import {
   CaretUpIcon,
   CheckIcon,
   MagnifyingGlassIcon,
+  RocketIcon,
 } from '@radix-ui/react-icons';
 import { ComponentProps, forwardRef } from 'preact/compat';
 import { useImperativeHandle, useRef, useState } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
-import { PROJECT_TYPE_NAMES_PLURAL, useApp } from 'stores/app';
+import {
+  PROJECT_TYPE_ICONS,
+  PROJECT_TYPE_NAMES_PLURAL,
+  ProjectType,
+  useApp,
+} from 'stores/app';
 
 const Container = styled('div', {
   backgroundColor: theme.colors.componentInteractive_glass,
@@ -101,7 +107,7 @@ const DropdownItem = styled('button', {
   backgroundColor: 'transparent',
   display: 'flex',
   alignItems: 'center',
-  gap: theme.space.gapRelatedRegular,
+  gap: theme.space.gapRelatedMajor,
 
   '&:hover': {
     backgroundColor: theme.colors.componentInteractiveHover_glass,
@@ -109,6 +115,20 @@ const DropdownItem = styled('button', {
   '&:focus, &:active': {
     backgroundColor: theme.colors.componentInteractiveActive_glass,
   },
+});
+const IconContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  '& svg': {
+    width: '1rem',
+    height: '1rem',
+    color: theme.colors.textHighContrast_glass,
+  },
+});
+const Name = styled('span', {
+  flex: 1,
 });
 const DropdownSelectIcon = styled(CheckIcon, {
   width: '1rem',
@@ -127,7 +147,7 @@ const DropdownSelectIcon = styled(CheckIcon, {
 export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
   (props, ref) => {
     const [open, setOpen] = useState(false);
-    const currentFilter = useApp((state) => state.projectType);
+    const currentType = useApp((state) => state.projectType);
     const input = useRef<HTMLInputElement>(null);
 
     useImperativeHandle(ref, () => input.current as HTMLInputElement);
@@ -145,10 +165,17 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
             setOpen((state) => !state);
           }}
         >
+          <IconContainer>
+            {currentType === undefined ? (
+              <RocketIcon />
+            ) : (
+              PROJECT_TYPE_ICONS[currentType]
+            )}
+          </IconContainer>
           <DropdownText>
-            {currentFilter === undefined
+            {currentType === undefined
               ? 'All'
-              : PROJECT_TYPE_NAMES_PLURAL[currentFilter]}
+              : PROJECT_TYPE_NAMES_PLURAL[currentType]}
           </DropdownText>
           {open ? <DropdownIconUp /> : <DropdownIconDown />}
         </DropdownTrigger>
@@ -161,8 +188,9 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
                 setOpen(false);
               }}
             >
-              <DropdownSelectIcon selected={currentFilter === undefined} />
-              All
+              <RocketIcon />
+              <Name>All</Name>
+              <DropdownSelectIcon selected={currentType === undefined} />
             </DropdownItem>
 
             {Object.entries(PROJECT_TYPE_NAMES_PLURAL).map(([filter, name]) => {
@@ -176,8 +204,11 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
                     setOpen(false);
                   }}
                 >
-                  <DropdownSelectIcon selected={currentFilter === filterInt} />
-                  {name}
+                  <IconContainer>
+                    {PROJECT_TYPE_ICONS[filterInt as ProjectType]}
+                  </IconContainer>
+                  <Name>{name}</Name>
+                  <DropdownSelectIcon selected={currentType === filterInt} />
                 </DropdownItem>
               );
             })}
