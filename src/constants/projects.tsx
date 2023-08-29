@@ -188,11 +188,13 @@ export const projects: Project[] = (
           label: 'Website',
           icon: <GlobeIcon />,
           url: 'http://bedrocklauncher.github.io/',
+          target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
           url: 'https://github.com/bedrockLauncher/BedrockLauncher/releases/latest/download/BedrockLauncherSetup.exe',
+          target: '_blank',
         },
       ],
     },
