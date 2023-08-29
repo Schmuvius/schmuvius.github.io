@@ -12,15 +12,13 @@ export interface Projects {
   input: Ref<HTMLInputElement>;
 }
 
-const ITEM_SIZE = 8;
-
 const Container = styled('div', {
   display: 'grid',
   gap: theme.space.gapUnrelatedRegular,
   gridTemplateColumns: 'repeat(1, 1fr)',
-  overflowY: 'scroll',
   flex: 1,
-  maxHeight: '100%',
+  overflowY: 'scroll',
+  paddingBottom: '2rem',
 
   '&::-webkit-scrollbar': {
     display: 'none',
@@ -30,7 +28,6 @@ const Container = styled('div', {
   },
 });
 const Item = styled('div', {
-  height: `${ITEM_SIZE}rem`,
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: theme.colors.componentInteractive_glass,
