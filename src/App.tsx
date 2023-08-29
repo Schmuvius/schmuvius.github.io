@@ -1,7 +1,9 @@
 import 'App.css';
 import LightShowPrimitive from 'components/LightShow';
-import Navbar from 'components/Navbar';
+import { Navbar } from 'components/Navbar';
+import { useRef } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
+import { Projects } from './components/Projects';
 
 export const MAX_COLUMNS = 5;
 export const COLUMN_WIDTH = 10; // rem
@@ -30,12 +32,15 @@ const LightShowContent = styled('div', {
 });
 
 export default function App() {
+  const input = useRef<HTMLInputElement>(null);
+
   return (
     <AppWrapper>
       <LightShow>
         <LightShowInnerWrapper>
           <LightShowContent>
-            <Navbar />
+            <Navbar ref={input} />
+            <Projects input={input} />
           </LightShowContent>
         </LightShowInnerWrapper>
       </LightShow>

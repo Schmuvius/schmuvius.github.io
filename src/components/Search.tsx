@@ -4,15 +4,16 @@ import {
   CheckIcon,
   MagnifyingGlassIcon,
 } from '@radix-ui/react-icons';
-import { useRef, useState } from 'preact/hooks';
+import { ComponentProps, forwardRef } from 'preact/compat';
+import { useImperativeHandle, useRef, useState } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
-import { FILTER_NAMES, useApp } from 'stores/app';
+import { PROJECT_TYPE_NAMES, useApp } from 'stores/app';
 
 const Container = styled('div', {
   backgroundColor: theme.colors.componentInteractive,
   border: theme.borderStyles.interactive,
   flex: 1,
-  borderRadius: '1rem',
+  borderRadius: theme.radii.blunter,
   display: 'flex',
   position: 'relative',
   cursor: 'text',
@@ -83,7 +84,7 @@ const Dropdown = styled('div', {
   transform: `translateY(${theme.space.gapRelatedMajor})`,
   backgroundColor: theme.colors.componentInteractive,
   border: theme.borderStyles.interactive,
-  borderRadius: '1rem',
+  borderRadius: theme.radii.blunter,
   padding: theme.space.paddingRegular,
   display: 'flex',
   flexDirection: 'column',
@@ -94,7 +95,7 @@ const DropdownItem = styled('button', {
   fontSize: theme.fontSizes.paragraph,
   cursor: 'pointer',
   border: 'none',
-  borderRadius: '1rem',
+  borderRadius: theme.radii.blunter,
   color: theme.colors.textHighContrast,
   backgroundColor: 'transparent',
   display: 'flex',
@@ -122,47 +123,66 @@ const DropdownSelectIcon = styled(CheckIcon, {
   },
 });
 
-export default function Search() {
-  const [open, setOpen] = useState(false);
-  const currentFilter = useApp((state) => state.filter);
-  const input = useRef<HTMLInputElement>(null);
-  return (
-    <Container onClick={() => input.current?.focus()}>
-      <InputContainer>
-        <SearchIcon />
-        <Input placeholder="Search" ref={input} />
-      </InputContainer>
+export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
+  (props, ref) => {
+    const [open, setOpen] = useState(false);
+    const currentFilter = useApp((state) => state.projectType);
+    const input = useRef<HTMLInputElement>(null);
 
-      <DropdownTrigger
-        onClick={(event: MouseEvent) => {
-          event.stopPropagation();
-          setOpen((state) => !state);
-        }}
-      >
-        <DropdownText>{FILTER_NAMES[currentFilter]}</DropdownText>
-        {open ? <DropdownIconUp /> : <DropdownIconDown />}
-      </DropdownTrigger>
+    useImperativeHandle(ref, () => input.current as HTMLInputElement);
 
-      {open && (
-        <Dropdown>
-          {Object.entries(FILTER_NAMES).map(([filter, name]) => {
-            const filterInt = parseInt(filter, 10);
+    return (
+      <Container onClick={() => input.current?.focus()}>
+        <InputContainer>
+          <SearchIcon />
+          <Input placeholder="Search" ref={input} />
+        </InputContainer>
 
-            return (
-              <DropdownItem
-                key={filter}
-                onClick={() => {
-                  useApp.setState({ filter: filterInt });
-                  setOpen(false);
-                }}
-              >
-                <DropdownSelectIcon selected={currentFilter === filterInt} />
-                {name}
-              </DropdownItem>
-            );
-          })}
-        </Dropdown>
-      )}
-    </Container>
-  );
-}
+        <DropdownTrigger
+          onClick={(event: MouseEvent) => {
+            event.stopPropagation();
+            setOpen((state) => !state);
+          }}
+        >
+          <DropdownText>
+            {currentFilter === undefined
+              ? 'All'
+              : PROJECT_TYPE_NAMES[currentFilter]}
+          </DropdownText>
+          {open ? <DropdownIconUp /> : <DropdownIconDown />}
+        </DropdownTrigger>
+
+        {open && (
+          <Dropdown>
+            <DropdownItem
+              onClick={() => {
+                useApp.setState({ projectType: undefined });
+                setOpen(false);
+              }}
+            >
+              <DropdownSelectIcon selected={currentFilter === undefined} />
+              All
+            </DropdownItem>
+
+            {Object.entries(PROJECT_TYPE_NAMES).map(([filter, name]) => {
+              const filterInt = parseInt(filter, 10);
+
+              return (
+                <DropdownItem
+                  key={filter}
+                  onClick={() => {
+                    useApp.setState({ projectType: filterInt });
+                    setOpen(false);
+                  }}
+                >
+                  <DropdownSelectIcon selected={currentFilter === filterInt} />
+                  {name}
+                </DropdownItem>
+              );
+            })}
+          </Dropdown>
+        )}
+      </Container>
+    );
+  },
+);

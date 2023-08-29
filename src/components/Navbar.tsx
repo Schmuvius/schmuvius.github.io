@@ -1,5 +1,6 @@
+import { ComponentProps, forwardRef } from 'preact/compat';
 import { styled } from 'stitches.config';
-import Search from './Search';
+import { Search } from './Search';
 
 const Container = styled('div', {
   padding: '2rem 0',
@@ -16,11 +17,13 @@ const Logo = styled('img', {
   width: '10rem',
 });
 
-export default function Navbar() {
-  return (
-    <Container>
-      <Logo src="/logo.svg" />
-      <Search />
-    </Container>
-  );
-}
+export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
+  (props, ref) => {
+    return (
+      <Container>
+        <Logo src="/logo.svg" />
+        <Search ref={ref} />
+      </Container>
+    );
+  },
+);
