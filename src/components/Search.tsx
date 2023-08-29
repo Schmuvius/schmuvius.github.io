@@ -4,7 +4,7 @@ import {
   CheckIcon,
   MagnifyingGlassIcon,
 } from '@radix-ui/react-icons';
-import { useState } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
 import { FILTER_NAMES, useApp } from 'stores/app';
 
@@ -15,7 +15,11 @@ const Container = styled('div', {
   borderRadius: '1rem',
   display: 'flex',
   position: 'relative',
+  cursor: 'text',
 
+  '&:focus-within, &:active': {
+    outline: theme.borderStyles.interactiveActive,
+  },
   '@verticalNavbar': {
     width: '100%',
   },
@@ -121,15 +125,20 @@ const DropdownSelectIcon = styled(CheckIcon, {
 export default function Search() {
   const [open, setOpen] = useState(false);
   const currentFilter = useApp((state) => state.filter);
-
+  const input = useRef<HTMLInputElement>(null);
   return (
-    <Container>
+    <Container onClick={() => input.current?.focus()}>
       <InputContainer>
         <SearchIcon />
-        <Input placeholder="Search" />
+        <Input placeholder="Search" ref={input} />
       </InputContainer>
 
-      <DropdownTrigger onClick={() => setOpen((state) => !state)}>
+      <DropdownTrigger
+        onClick={(event: MouseEvent) => {
+          event.stopPropagation();
+          setOpen((state) => !state);
+        }}
+      >
         <DropdownText>{FILTER_NAMES[currentFilter]}</DropdownText>
         {open ? <DropdownIconUp /> : <DropdownIconDown />}
       </DropdownTrigger>
