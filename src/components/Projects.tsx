@@ -44,15 +44,8 @@ const Content = styled('div', {
   gap: theme.space.gapUnrelatedMajor,
   flex: 1,
 });
-const IconContainer = styled('div', {
-  width: `${ITEM_SIZE}rem`,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
 const Icon = styled('img', {
-  width: '100%',
-  height: '100%',
+  aspectRatio: '1/1',
   objectFit: 'contain',
 });
 const Info = styled('div', {
@@ -103,7 +96,6 @@ const Action = styled('a', {
   padding: theme.space.paddingRegular,
 
   '&:hover': {
-    textDecoration: 'underline',
     backgroundColor: theme.colors.componentInteractiveHover_glass,
   },
   '& + &': {
@@ -137,19 +129,15 @@ export function Projects({ input }: Projects) {
                       <Description>{project.description}</Description>
                     </Info>
 
-                    {project.icon !== undefined && (
-                      <IconContainer>
-                        <Icon src={project.icon} />
-                      </IconContainer>
-                    )}
+                    {project.icon !== undefined && <Icon src={project.icon} />}
                   </Content>
 
-                  {project.actions !== undefined && (
+                  {project.links !== undefined && (
                     <Actions>
-                      {project.actions.map((action) => (
+                      {project.links.map((action) => (
                         <Action
                           href={action.url}
-                          target="_blank"
+                          target={action.target}
                           key={action.url}
                         >
                           {action.icon}

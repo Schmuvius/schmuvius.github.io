@@ -21,7 +21,7 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
   (props, ref) => {
     return (
       <Container>
-        <Logo src="/logo.svg" />
+        <Logo src="/assets/icons/tresabhi.svg" />
         <Search ref={ref} />
       </Container>
     );
