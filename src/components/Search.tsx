@@ -7,11 +7,11 @@ import {
 import { ComponentProps, forwardRef } from 'preact/compat';
 import { useImperativeHandle, useRef, useState } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
-import { PROJECT_TYPE_NAMES, useApp } from 'stores/app';
+import { PROJECT_TYPE_NAMES_PLURAL, useApp } from 'stores/app';
 
 const Container = styled('div', {
-  backgroundColor: theme.colors.componentInteractive,
-  border: theme.borderStyles.interactive,
+  backgroundColor: theme.colors.componentInteractive_glass,
+  border: theme.borderStyles.interactive_glass,
   flex: 1,
   borderRadius: theme.radii.blunter,
   display: 'flex',
@@ -19,7 +19,7 @@ const Container = styled('div', {
   cursor: 'text',
 
   '&:focus-within, &:active': {
-    outline: theme.borderStyles.interactiveActive,
+    outline: theme.borderStyles.interactiveActive_glass,
   },
   '@verticalNavbar': {
     width: '100%',
@@ -36,7 +36,7 @@ const InputContainer = styled('div', {
 const SearchIcon = styled(MagnifyingGlassIcon, {
   width: '1rem',
   height: '1rem',
-  color: theme.colors.textLowContrast,
+  color: theme.colors.textLowContrast_glass,
 });
 const Input = styled('input', {
   padding: '0',
@@ -45,11 +45,11 @@ const Input = styled('input', {
   flex: 1,
   backgroundColor: 'transparent',
   fontSize: theme.fontSizes.input,
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
   width: 0,
   textOverflow: 'ellipsis',
 
-  '&::placeholder': { color: theme.colors.textLowContrast },
+  '&::placeholder': { color: theme.colors.textLowContrast_glass },
 });
 const DropdownTrigger = styled('button', {
   backgroundColor: 'transparent',
@@ -61,33 +61,34 @@ const DropdownTrigger = styled('button', {
   cursor: 'pointer',
   userSelect: 'none',
   gap: theme.space.gapRelatedMajor,
-  borderLeft: theme.borderStyles.interactive,
+  borderLeft: theme.borderStyles.interactive_glass,
 });
 const DropdownIconDown = styled(CaretDownIcon, {
   width: '1rem',
   height: '1rem',
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
 });
 const DropdownIconUp = styled(CaretUpIcon, {
   width: '1rem',
   height: '1rem',
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
 });
 const DropdownText = styled('span', {
   fontSize: theme.fontSizes.paragraph,
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
 });
 const Dropdown = styled('div', {
   position: 'absolute',
   top: '100%',
   right: 0,
   transform: `translateY(${theme.space.gapRelatedMajor})`,
-  backgroundColor: theme.colors.componentInteractive,
-  border: theme.borderStyles.interactive,
+  backgroundColor: theme.colors.componentInteractive_glass,
+  border: theme.borderStyles.interactive_glass,
   borderRadius: theme.radii.blunter,
   padding: theme.space.paddingRegular,
   display: 'flex',
   flexDirection: 'column',
+  backdropFilter: 'blur(1rem)',
 });
 const DropdownItem = styled('button', {
   textAlign: 'left',
@@ -96,23 +97,23 @@ const DropdownItem = styled('button', {
   cursor: 'pointer',
   border: 'none',
   borderRadius: theme.radii.blunter,
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
   backgroundColor: 'transparent',
   display: 'flex',
   alignItems: 'center',
   gap: theme.space.gapRelatedRegular,
 
   '&:hover': {
-    backgroundColor: theme.colors.componentInteractiveHover,
+    backgroundColor: theme.colors.componentInteractiveHover_glass,
   },
   '&:focus, &:active': {
-    backgroundColor: theme.colors.componentInteractiveActive,
+    backgroundColor: theme.colors.componentInteractiveActive_glass,
   },
 });
 const DropdownSelectIcon = styled(CheckIcon, {
   width: '1rem',
   height: '1rem',
-  color: theme.colors.textHighContrast,
+  color: theme.colors.textHighContrast_glass,
 
   variants: {
     selected: {
@@ -147,7 +148,7 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
           <DropdownText>
             {currentFilter === undefined
               ? 'All'
-              : PROJECT_TYPE_NAMES[currentFilter]}
+              : PROJECT_TYPE_NAMES_PLURAL[currentFilter]}
           </DropdownText>
           {open ? <DropdownIconUp /> : <DropdownIconDown />}
         </DropdownTrigger>
@@ -164,7 +165,7 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
               All
             </DropdownItem>
 
-            {Object.entries(PROJECT_TYPE_NAMES).map(([filter, name]) => {
+            {Object.entries(PROJECT_TYPE_NAMES_PLURAL).map(([filter, name]) => {
               const filterInt = parseInt(filter, 10);
 
               return (

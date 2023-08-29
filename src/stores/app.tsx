@@ -3,27 +3,25 @@ import { ComponentChild } from 'preact';
 import { create } from 'zustand';
 
 export enum ProjectType {
-  ResourcePacks,
-  Bots,
-  Apps,
+  ResourcePack,
+  Bot,
+  App,
 }
 
 export const PROJECT_TYPE_NAMES: Record<ProjectType, string> = {
-  [ProjectType.ResourcePacks]: 'Resource packs',
-  [ProjectType.Bots]: 'Bots',
-  [ProjectType.Apps]: 'Apps',
+  [ProjectType.ResourcePack]: 'Resource pack',
+  [ProjectType.Bot]: 'Bot',
+  [ProjectType.App]: 'App',
 };
-
-export const PROJECT_TYPE_NAMES_SINGULAR: Record<ProjectType, string> = {
-  [ProjectType.ResourcePacks]: 'Resource pack',
-  [ProjectType.Bots]: 'Bot',
-  [ProjectType.Apps]: 'App',
+export const PROJECT_TYPE_NAMES_PLURAL: Record<ProjectType, string> = {
+  [ProjectType.ResourcePack]: 'Resource packs',
+  [ProjectType.Bot]: 'Bots',
+  [ProjectType.App]: 'Apps',
 };
-
 export const PROJECT_TYPE_ICONS: Record<ProjectType, ComponentChild> = {
-  [ProjectType.ResourcePacks]: <ImageIcon />,
-  [ProjectType.Bots]: <ChatBubbleIcon />,
-  [ProjectType.Apps]: <MobileIcon />,
+  [ProjectType.ResourcePack]: <ImageIcon />,
+  [ProjectType.Bot]: <ChatBubbleIcon />,
+  [ProjectType.App]: <MobileIcon />,
 };
 
 export interface UseApp {

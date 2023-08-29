@@ -51,7 +51,11 @@ export const {
       regular: '0.25s',
     },
 
-    sizes: createSizes(),
+    sizes: {
+      ...createSizes(),
+
+      pageWidth: '54rem',
+    },
 
     fontWeights: createFontWeights(),
   },

@@ -4,7 +4,7 @@ import { Search, SearchItem } from 'react-fuzzysort';
 import { styled, theme } from 'stitches.config';
 import {
   PROJECT_TYPE_ICONS,
-  PROJECT_TYPE_NAMES_SINGULAR,
+  PROJECT_TYPE_NAMES,
   ProjectType,
 } from 'stores/app';
 
@@ -18,7 +18,13 @@ const Container = styled('div', {
   display: 'grid',
   gap: theme.space.gapUnrelatedRegular,
   gridTemplateColumns: 'repeat(1, 1fr)',
+  overflowY: 'scroll',
+  flex: 1,
+  maxHeight: '100%',
 
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
   '@twoRowSearch': {
     gridTemplateColumns: 'repeat(2, 1fr)',
   },
@@ -124,7 +130,7 @@ export function Projects({ input }: Projects) {
                         <Name>{project.name}</Name>
                         <Type>
                           {PROJECT_TYPE_ICONS[project.type]}
-                          {PROJECT_TYPE_NAMES_SINGULAR[project.type]}
+                          {PROJECT_TYPE_NAMES[project.type]}
                         </Type>
                       </Title>
 
