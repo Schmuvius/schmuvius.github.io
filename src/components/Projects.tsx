@@ -6,6 +6,7 @@ import {
   PROJECT_TYPE_ICONS,
   PROJECT_TYPE_NAMES,
   ProjectType,
+  useApp,
 } from 'stores/app';
 
 export interface Projects {
@@ -19,6 +20,7 @@ const Container = styled('div', {
   flex: 1,
   overflowY: 'scroll',
   paddingBottom: '2rem',
+  gridAutoRows: '10rem',
 
   '&::-webkit-scrollbar': {
     display: 'none',
@@ -107,56 +109,66 @@ const Action = styled('a', {
 });
 
 export function Projects({ input }: Projects) {
+  const currentType = useApp((state) => state.projectType);
+
   return (
     <Container>
       <Search
+        key={currentType}
         input={input}
-        list={projects.map(
-          (project) =>
-            ({
-              query: `${project.name} ${project.description} ${
-                ProjectType[project.type]
-              } ${
-                project.links
-                  ? project.links.map((link) => `${link.label} ${link.url}`)
-                  : ''
-              }`,
-              node: (
-                <Item>
-                  <Content>
-                    <Info>
-                      <Title>
-                        <Name>{project.name}</Name>
-                        <Type>
-                          {PROJECT_TYPE_ICONS[project.type]}
-                          {PROJECT_TYPE_NAMES[project.type]}
-                        </Type>
-                      </Title>
+        list={projects
+          .filter(
+            (project) =>
+              currentType === undefined || project.type === currentType,
+          )
+          .map(
+            (project) =>
+              ({
+                query: `${project.name} ${project.description} ${
+                  ProjectType[project.type]
+                } ${
+                  project.links
+                    ? project.links.map((link) => `${link.label} ${link.url}`)
+                    : ''
+                }`,
+                node: (
+                  <Item>
+                    <Content>
+                      <Info>
+                        <Title>
+                          <Name>{project.name}</Name>
+                          <Type>
+                            {PROJECT_TYPE_ICONS[project.type]}
+                            {PROJECT_TYPE_NAMES[project.type]}
+                          </Type>
+                        </Title>
 
-                      <Description>{project.description}</Description>
-                    </Info>
+                        <Description>{project.description}</Description>
+                      </Info>
 
-                    {project.icon !== undefined && <Icon src={project.icon} />}
-                  </Content>
+                      {project.icon !== undefined && (
+                        <Icon src={project.icon} />
+                      )}
+                    </Content>
 
-                  {project.links !== undefined && (
-                    <Actions>
-                      {project.links.map((action) => (
-                        <Action
-                          href={action.url}
-                          target={action.target}
-                          key={action.url}
-                        >
-                          {action.icon}
-                          {action.label}
-                        </Action>
-                      ))}
-                    </Actions>
-                  )}
-                </Item>
-              ),
-            } satisfies SearchItem),
-        )}
+                    {project.links !== undefined && (
+                      <Actions>
+                        {project.links.map((action) => (
+                          <Action
+                            href={action.url}
+                            target={action.target}
+                            key={action.url}
+                          >
+                            {action.icon}
+                            {action.label}
+                          </Action>
+                        ))}
+                      </Actions>
+                    )}
+                  </Item>
+                ),
+              } satisfies SearchItem),
+          )}
       />
     </Container>
   );

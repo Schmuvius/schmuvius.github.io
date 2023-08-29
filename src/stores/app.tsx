@@ -11,13 +11,13 @@ import { ComponentChild } from 'preact';
 import { create } from 'zustand';
 
 export enum ProjectType {
-  ResourcePack,
-  Bot,
   App,
-  Miscellaneous,
-  Social,
+  ResourcePack,
   Library,
+  Bot,
+  Social,
   Website,
+  Miscellaneous,
 }
 
 export const PROJECT_TYPE_NAMES: Record<ProjectType, string> = {
