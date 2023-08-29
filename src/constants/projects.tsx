@@ -1,4 +1,9 @@
-import { FileTextIcon, GitHubLogoIcon, PlayIcon } from '@radix-ui/react-icons';
+import {
+  FileTextIcon,
+  GitHubLogoIcon,
+  PlayIcon,
+  PlusIcon,
+} from '@radix-ui/react-icons';
 import { ComponentChild } from 'preact';
 import { ProjectType } from 'stores/app';
 
@@ -55,6 +60,79 @@ export const projects: Project[] = (
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
           url: 'https://github.com/tresabhi/isu-aer-e-160',
+        },
+      ],
+    },
+
+    {
+      name: 'Blitzkrieg',
+      description:
+        '🎉 All-in-one Discord bot for everything World of Tanks Blitz',
+      type: ProjectType.Bot,
+      icon: '/assets/icons/blitzkrieg.svg',
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/tresabhi/blitzkrieg',
+        },
+        {
+          label: 'Add to server',
+          icon: <PlusIcon />,
+          url: 'https://discord.com/application-directory/1097673957865443370',
+          target: '_blank',
+        },
+      ],
+    },
+
+    {
+      name: 'Très Discord',
+      description: '🎮 A Discord server all about me and my projects',
+      type: ProjectType.Social,
+      icon: '/assets/icons/tres-discord.svg',
+
+      links: [
+        {
+          label: 'Join',
+          icon: <PlusIcon />,
+          url: 'https://discord.gg/nDt7AjGJQH',
+          target: '_blank',
+        },
+      ],
+    },
+
+    {
+      name: 'React Fuzzysort',
+      description:
+        '🔎 The fuzzysort library implemented as a handy React component',
+      type: ProjectType.Library,
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/tresabhi/react-fuzzysort',
+        },
+        {
+          label: 'Docs',
+          icon: <FileTextIcon />,
+          url: 'https://github.com/tresabhi/react-fuzzysort?tab=readme-ov-file#documentation',
+        },
+      ],
+    },
+
+    {
+      name: 'Trippy Fur',
+      description:
+        '🥴 A replication of MacOS\' "collective intelligence" screensaver',
+      type: ProjectType.Website,
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/tresabhi/trippy-fur',
         },
       ],
     },

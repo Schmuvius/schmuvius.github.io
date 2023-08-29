@@ -45,7 +45,8 @@ const Content = styled('div', {
   flex: 1,
 });
 const Icon = styled('img', {
-  aspectRatio: '1/1',
+  width: '4rem',
+  height: '4rem',
   objectFit: 'contain',
 });
 const Info = styled('div', {
@@ -64,6 +65,11 @@ const Title = styled('div', {
 const Name = styled('span', {
   color: theme.colors.textHighContrast_glass,
   fontWeight: 'bold',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  minWidth: 0,
+  maxWidth: '12rem',
 });
 const Type = styled('span', {
   display: 'flex',
