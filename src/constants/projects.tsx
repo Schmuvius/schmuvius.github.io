@@ -1,6 +1,8 @@
 import {
+  DownloadIcon,
   FileTextIcon,
   GitHubLogoIcon,
+  GlobeIcon,
   PlayIcon,
   PlusIcon,
 } from '@radix-ui/react-icons';
@@ -133,6 +135,64 @@ export const projects: Project[] = (
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
           url: 'https://github.com/tresabhi/trippy-fur',
+        },
+      ],
+    },
+
+    {
+      name: 'Bepaint',
+      description: '🎡 Quickly generate elegant themes with minimal code',
+      type: ProjectType.Library,
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/tresabhi/bepaint',
+        },
+        {
+          label: 'Docs',
+          icon: <FileTextIcon />,
+          url: 'https://github.com/tresabhi/bepaint?tab=readme-ov-file#documentation',
+        },
+      ],
+    },
+
+    {
+      name: 'Scripts',
+      description: '🪄 Scripts that I use on my computer',
+      type: ProjectType.Miscellaneous,
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/tresabhi/scripts',
+        },
+      ],
+    },
+
+    {
+      name: 'Bedrock Launcher',
+      description: '⛏️ An unofficial Minecraft Bedrock for Windows launcher',
+      type: ProjectType.App,
+      icon: '/assets/icons/bedrock-launcher.png',
+
+      links: [
+        {
+          label: 'GitHub',
+          icon: <GitHubLogoIcon />,
+          url: 'https://github.com/BedrockLauncher/BedrockLauncher',
+        },
+        {
+          label: 'Website',
+          icon: <GlobeIcon />,
+          url: 'http://bedrocklauncher.github.io/',
+        },
+        {
+          label: 'Download',
+          icon: <DownloadIcon />,
+          url: 'https://github.com/bedrockLauncher/BedrockLauncher/releases/latest/download/BedrockLauncherSetup.exe',
         },
       ],
     },

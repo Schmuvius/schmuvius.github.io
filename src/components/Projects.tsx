@@ -119,6 +119,10 @@ export function Projects({ input }: Projects) {
             ({
               query: `${project.name} ${project.description} ${
                 ProjectType[project.type]
+              } ${
+                project.links
+                  ? project.links.map((link) => `${link.label} ${link.url}`)
+                  : ''
               }`,
               node: (
                 <Item>
