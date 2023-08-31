@@ -59,3 +59,7 @@ const defaultApp: UseApp = {
 };
 
 export const useApp = create<UseApp>(() => defaultApp);
+
+window.addEventListener('hashchange', () => {
+  useApp.setState({ showProjects: location.hash === '#projects' });
+});
