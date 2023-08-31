@@ -18,11 +18,12 @@ import {
 const Container = styled('div', {
   backgroundColor: theme.colors.componentInteractive_glass,
   border: theme.borderStyles.interactive_glass,
-  flex: 1,
   borderRadius: theme.radii.blunter,
   display: 'flex',
   position: 'relative',
   cursor: 'text',
+  transition: theme.transitions.regular,
+  overflow: 'hidden',
 
   '&:focus-within, &:active': {
     outline: theme.borderStyles.interactiveActive_glass,
@@ -30,13 +31,27 @@ const Container = styled('div', {
   '@verticalNavbar': {
     width: '100%',
   },
+
+  variants: {
+    expanded: {
+      true: {
+        flex: 1,
+        opacity: 1,
+      },
+      false: {
+        flex: 0,
+        width: 0,
+        opacity: 0,
+      },
+    },
+  },
 });
 const InputContainer = styled('div', {
   display: 'flex',
-  gap: theme.space.gapRelatedMajor,
   flex: 1,
   padding: `${theme.space.paddingRegular} ${theme.space.paddingMajor}`,
   alignItems: 'center',
+  gap: theme.space.gapRelatedMajor,
   justifyContent: 'center',
 });
 const SearchIcon = styled(MagnifyingGlassIcon, {
@@ -149,11 +164,12 @@ export const Search = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
     const [open, setOpen] = useState(false);
     const currentType = useApp((state) => state.projectType);
     const input = useRef<HTMLInputElement>(null);
+    const showProjects = useApp((state) => state.showProjects);
 
     useImperativeHandle(ref, () => input.current as HTMLInputElement);
 
     return (
-      <Container onClick={() => input.current?.focus()}>
+      <Container expanded={showProjects} onClick={() => input.current?.focus()}>
         <InputContainer>
           <SearchIcon />
           <Input placeholder="Search" ref={input} />

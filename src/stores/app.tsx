@@ -50,10 +50,12 @@ export const PROJECT_TYPE_ICONS: Record<ProjectType, ComponentChild> = {
 
 export interface UseApp {
   projectType?: ProjectType;
+  showProjects: boolean;
 }
 
 const defaultApp: UseApp = {
   projectType: undefined,
+  showProjects: false,
 };
 
 export const useApp = create<UseApp>(() => defaultApp);

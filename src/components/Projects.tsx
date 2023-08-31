@@ -17,16 +17,29 @@ const Container = styled('div', {
   display: 'grid',
   gap: theme.space.gapUnrelatedRegular,
   gridTemplateColumns: 'repeat(1, 1fr)',
-  flex: 1,
   overflowY: 'scroll',
   paddingBottom: '2rem',
   gridAutoRows: '10rem',
+  transition: theme.transitions.regular,
 
   '&::-webkit-scrollbar': {
     display: 'none',
   },
   '@twoRowSearch': {
     gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+
+  variants: {
+    expanded: {
+      true: {
+        flex: 1,
+        opacity: 1,
+      },
+      false: {
+        flex: 0,
+        opacity: 0,
+      },
+    },
   },
 });
 const Item = styled('div', {
@@ -110,9 +123,10 @@ const Action = styled('a', {
 
 export function Projects({ input }: Projects) {
   const currentType = useApp((state) => state.projectType);
+  const showProjects = useApp((state) => state.showProjects);
 
   return (
-    <Container>
+    <Container expanded={showProjects}>
       <Search
         key={currentType}
         input={input}
