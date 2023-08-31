@@ -73,9 +73,7 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
       <Container showProjects={showProjects}>
         <SearchContainer showProjects={showProjects}>
           <Logo
-            onClick={() =>
-              useApp.setState((state) => ({ showProjects: false }))
-            }
+            onClick={() => useApp.setState(() => ({ showProjects: false }))}
             showProjects={showProjects}
             src="/assets/icons/tresabhi.svg"
           />
@@ -84,7 +82,7 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
 
         <HeroButton
           showProjects={showProjects}
-          onClick={() => useApp.setState((state) => ({ showProjects: true }))}
+          onClick={() => useApp.setState(() => ({ showProjects: true }))}
         >
           <RocketIcon /> Projects
         </HeroButton>
