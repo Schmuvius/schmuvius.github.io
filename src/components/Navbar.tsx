@@ -13,6 +13,7 @@ const Container = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   transition: theme.transitions.regular,
+  width: '100%',
 
   variants: {
     showProjects: {

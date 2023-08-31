@@ -1,6 +1,7 @@
 import 'App.css';
 import LightShowPrimitive from 'components/LightShow';
 import { Navbar } from 'components/Navbar';
+import { Socials } from 'components/Socials';
 import { useRef } from 'preact/hooks';
 import { styled, theme } from 'stitches.config';
 import { Projects } from './components/Projects';
@@ -31,6 +32,8 @@ const LightShowContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   maxWidth: `${MAX_COLUMNS * COLUMN_WIDTH + (MAX_COLUMNS - 1)}rem`,
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 export default function App() {
@@ -42,6 +45,7 @@ export default function App() {
         <LightShowInnerWrapper>
           <LightShowContent>
             <Navbar ref={input} />
+            <Socials />
             <Projects input={input} />
           </LightShowContent>
         </LightShowInnerWrapper>
