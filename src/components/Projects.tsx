@@ -43,6 +43,7 @@ const Container = styled('div', {
   },
 });
 const Item = styled('div', {
+  maxWidth: '100%',
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: theme.colors.componentInteractive_glass,
