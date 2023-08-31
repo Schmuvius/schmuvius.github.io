@@ -50,11 +50,13 @@ const SearchContainer = styled('div', {
 });
 const Logo = styled('img', {
   transition: theme.transitions.regular,
+  textShadow: `0 0 2px ${theme.colors.componentInteractive}, 0 0 0 0 ${theme.colors.componentInteractive_accent}`,
 
   variants: {
     showProjects: {
       true: {
         width: '10rem',
+        cursor: 'pointer',
       },
       false: {
         width: '16rem',
@@ -70,15 +72,19 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
     return (
       <Container showProjects={showProjects}>
         <SearchContainer showProjects={showProjects}>
-          <Logo showProjects={showProjects} src="/assets/icons/tresabhi.svg" />
+          <Logo
+            onClick={() =>
+              useApp.setState((state) => ({ showProjects: false }))
+            }
+            showProjects={showProjects}
+            src="/assets/icons/tresabhi.svg"
+          />
           <Search ref={ref} />
         </SearchContainer>
 
         <HeroButton
           showProjects={showProjects}
-          onClick={() =>
-            useApp.setState((state) => ({ showProjects: !state.showProjects }))
-          }
+          onClick={() => useApp.setState((state) => ({ showProjects: true }))}
         >
           <RocketIcon /> Projects
         </HeroButton>
