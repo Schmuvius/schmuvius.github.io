@@ -23,7 +23,6 @@ const Container = styled('div', {
   position: 'relative',
   cursor: 'text',
   transition: theme.transitions.regular,
-  overflow: 'hidden',
 
   '&:focus-within, &:active': {
     outline: theme.borderStyles.interactiveActive_glass,
@@ -42,6 +41,7 @@ const Container = styled('div', {
         flex: 0,
         width: 0,
         opacity: 0,
+        overflow: 'hidden',
       },
     },
   },
