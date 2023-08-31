@@ -1,6 +1,6 @@
 import { styled, theme } from 'stitches.config';
 
-const HeroButton = styled('button', {
+export const HeroButton = styled('button', {
   padding: `${theme.space.paddingRegular} ${theme.space.paddingMajor}`,
   borderRadius: theme.radii.regular,
   transition: theme.transitions.regular,
@@ -16,5 +16,17 @@ const HeroButton = styled('button', {
     filter: 'brightness(1.1)',
     boxShadow: `0 0 10px ${theme.colors.textHighContrast_accent}, 0 0 0 1px ${theme.colors.textHighContrast_accent}`,
   },
+
+  variants: {
+    showProjects: {
+      true: {
+        opacity: 0,
+        height: 0,
+        padding: 0,
+        borderWidth: 0,
+        fontSize: 0,
+        cursor: 'default',
+      },
+    },
+  },
 });
-export default HeroButton;

@@ -1,4 +1,9 @@
-import { indigoDark, mauveDark, purpleDark } from '@radix-ui/colors';
+import {
+  indigoDark,
+  mauveDark,
+  mauveDarkA,
+  purpleDark,
+} from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 import {
   createBorderStyles,
@@ -27,6 +32,7 @@ export const {
       ...createColors(mauveDark),
       ...createColors(indigoDark, 'accent'),
       ...createColors(purpleDark, 'accentSecondary'),
+      ...createColors(mauveDarkA, 'glass'),
     },
     fontSizes: {
       ...createFontSizes(),
@@ -38,16 +44,24 @@ export const {
     radii: createRadii(),
     borderStyles: {
       ...createBorderStyles(mauveDark),
-      ...createBorderStyles(indigoDark, undefined, 'accent'),
-      ...createBorderStyles(purpleDark, undefined, 'accentSecondary'),
+      ...createBorderStyles(mauveDarkA, undefined, 'glass'),
     },
 
     transitions: {
       regular: '0.25s',
     },
 
-    sizes: createSizes(),
+    sizes: {
+      ...createSizes(),
+
+      pageWidth: '54rem',
+    },
 
     fontWeights: createFontWeights(),
+  },
+
+  media: {
+    verticalNavbar: '(max-width: 35rem)',
+    twoRowSearch: '(min-width: 48rem)',
   },
 });
