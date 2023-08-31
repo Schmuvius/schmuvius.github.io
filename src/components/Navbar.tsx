@@ -1,4 +1,5 @@
 import { RocketIcon } from '@radix-ui/react-icons';
+import openProjects from 'core/openProjects';
 import { ComponentProps, forwardRef } from 'preact/compat';
 import { styled, theme } from 'stitches.config';
 import { useApp } from 'stores/app';
@@ -73,17 +74,14 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
       <Container showProjects={showProjects}>
         <SearchContainer showProjects={showProjects}>
           <Logo
-            onClick={() => useApp.setState(() => ({ showProjects: false }))}
+            onClick={() => openProjects(false)}
             showProjects={showProjects}
             src="/assets/icons/tresabhi.svg"
           />
           <Search ref={ref} />
         </SearchContainer>
 
-        <HeroButton
-          showProjects={showProjects}
-          onClick={() => useApp.setState(() => ({ showProjects: true }))}
-        >
+        <HeroButton showProjects={showProjects} onClick={() => openProjects()}>
           <RocketIcon /> Projects
         </HeroButton>
       </Container>

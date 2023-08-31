@@ -55,7 +55,7 @@ export interface UseApp {
 
 const defaultApp: UseApp = {
   projectType: undefined,
-  showProjects: false,
+  showProjects: location.hash === '#projects',
 };
 
 export const useApp = create<UseApp>(() => defaultApp);
