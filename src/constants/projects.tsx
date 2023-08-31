@@ -1,4 +1,5 @@
 import {
+  ArchiveIcon,
   DownloadIcon,
   FileTextIcon,
   GitHubLogoIcon,
@@ -194,6 +195,22 @@ export const projects: Project[] = (
           label: 'Download',
           icon: <DownloadIcon />,
           url: 'https://github.com/bedrockLauncher/BedrockLauncher/releases/latest/download/BedrockLauncherSetup.exe',
+          target: '_blank',
+        },
+      ],
+    },
+
+    {
+      name: 'Corsa',
+      description: '🍁 A set of packs to breath new life into Minecraft',
+      type: ProjectType.ResourcePack,
+      icon: '/assets/icons/corsa.png',
+
+      links: [
+        {
+          label: 'MCPEDL',
+          icon: <ArchiveIcon />,
+          url: 'https://mcpedl.com/corsa-pack/',
           target: '_blank',
         },
       ],
