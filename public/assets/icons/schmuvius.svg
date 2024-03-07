@@ -1,0 +1,23 @@
+<svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Define the font -->
+    <style>
+        /* Define the font face */
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: url('https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2') format('woff2');
+        }
+        
+        text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+        }
+    </style>
+    
+    <!-- Use the font for text -->
+    <text x="10" y="50">
+        SCHMUVIUS
+    </text>
+</svg>
+
