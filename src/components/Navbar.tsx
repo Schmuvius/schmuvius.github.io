@@ -77,7 +77,7 @@ export const Navbar = forwardRef<HTMLInputElement, ComponentProps<'input'>>(
           <Logo
             onClick={() => openProjects(false)}
             showProjects={showProjects}
-            src="/assets/icons/tresabhi.svg"
+            src="/assets/icons/schmuvius.svg"
           />
           <Search ref={ref} />
         </SearchContainer>
