@@ -28,8 +28,8 @@ export interface ProjectLink {
 export const projects: Project[] = (
   [
     {
-      name: 'Stellar',
-      description: '🚀 Professional blueprint editor for Spaceflight Simulator',
+      name: 'Test',
+      description: '🎈 Lorem ipsum dolor sit amet',
       type: ProjectType.App,
       icon: '/assets/icons/stellar.svg',
 
@@ -37,119 +37,119 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/stellar',
+          url: 'https://github.com/schmuvius/schmuvius',
         },
         {
           label: 'Docs',
           icon: <FileTextIcon />,
-          url: '/stellar',
+          url: '/test',
         },
         {
           label: 'Launch',
           icon: <PlayIcon />,
-          url: 'https://stellaralpha.web.app/',
+          url: 'https://schmuvius.github.io/',
           target: '_blank',
         },
       ],
     },
 
     {
-      name: 'Iowa State University AER E 160',
-      description: '🥸 Assignments and projects in this class as a mono repo',
+      name: 'giesrighejgljer',
+      description: '💿 ghejesriggljgheesrigjglj',
       type: ProjectType.Miscellaneous,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/isu-aer-e-160',
+          url: 'https://github.com/schmuvius/a',
         },
       ],
     },
 
     {
-      name: 'Blitzkrieg',
+      name: 'bbbbbbbbbb',
       description:
-        '🎉 All-in-one Discord bot for everything World of Tanks Blitz',
+        '🎉 bbbbbbbbbbbbbbbbbbbbbb',
       type: ProjectType.Bot,
-      icon: '/assets/icons/blitzkrieg.svg',
+      icon: '/assets/icons/0.svg',
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/blitzkrieg',
+          url: 'https://github.com/',
         },
         {
           label: 'Add to server',
           icon: <PlusIcon />,
-          url: 'https://discord.com/application-directory/1097673957865443370',
+          url: 'https://discord.com/',
           target: '_blank',
         },
       ],
     },
 
     {
-      name: 'Très Discord',
-      description: '🎮 A Discord server all about me and my projects',
+      name: 'Controller',
+      description: '🎮 Controller',
       type: ProjectType.Social,
-      icon: '/assets/icons/tres-discord.svg',
+      icon: '/assets/icons/1.svg',
 
       links: [
         {
-          label: 'Join',
+          label: 'Game',
           icon: <PlusIcon />,
-          url: 'https://discord.gg/nDt7AjGJQH',
+          url: 'https://discord.gg/',
           target: '_blank',
         },
       ],
     },
 
     {
-      name: 'React Fuzzysort',
+      name: 'F',
       description:
-        '🔎 The fuzzysort library implemented as a handy React component',
+        '🔎 Library',
       type: ProjectType.Library,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/react-fuzzysort',
+          url: 'https://github.com/?',
         },
         {
           label: 'Docs',
           icon: <FileTextIcon />,
-          url: 'https://github.com/tresabhi/react-fuzzysort?tab=readme-ov-file#documentation',
+          url: 'https://github.com/schmuvius/',
         },
       ],
     },
 
     {
-      name: 'Trippy Fur',
+      name: 'TF',
       description:
-        '🥴 A replication of MacOS\' "collective intelligence" screensaver',
+        '🥴 wtf',
       type: ProjectType.Website,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/trippy-fur',
+          url: 'https://github.com/schmuvius/d',
         },
       ],
     },
 
     {
-      name: 'Bepaint',
-      description: '🎡 Quickly generate elegant themes with minimal code',
+      name: 'Paint',
+      description: '🎨',
       type: ProjectType.Library,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/bepaint',
+          url: 'https://github.com/schmuvius/bepaint',
         },
         {
           label: 'Docs',
