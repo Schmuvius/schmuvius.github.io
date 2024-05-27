@@ -48,19 +48,19 @@ export function Socials() {
 
   return (
     <Container showProjects={showProjects}>
-      <Social target="_blank" href="https://discord.gg/nDt7AjGJQH">
+      <Social target="_blank" href="https://discord.com/users/392014721303314432/">
         <DiscordLogoIcon /> Discord
       </Social>
 
       <DotFilledIcon />
 
-      <Social target="_blank" href="https://twitter.com/TresAbhi_">
+      <Social target="_blank" href="https://twitter.com/schmuvius">
         <TwitterLogoIcon /> Twitter
       </Social>
 
       <DotFilledIcon />
 
-      <Social target="_blank" href="https://github.com/tresabhi">
+      <Social target="_blank" href="https://github.com/Schmuvius">
         <GitHubLogoIcon /> GitHub
       </Social>
     </Container>
