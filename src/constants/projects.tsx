@@ -37,7 +37,7 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/schmuvius/schmuvius',
+          url: 'https://github.com/schmuvius/schmuvius.github.io/',
         },
         {
           label: 'Docs',
@@ -54,23 +54,23 @@ export const projects: Project[] = (
     },
 
     {
-      name: 'giesrighejgljer',
-      description: '💿 ghejesriggljgheesrigjglj',
+      name: 'G',
+      description: '💿 ',
       type: ProjectType.Miscellaneous,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/schmuvius/a',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'bbbbbbbbbb',
+      name: 'B',
       description:
-        '🎉 bbbbbbbbbbbbbbbbbbbbbb',
+        '🎉 ',
       type: ProjectType.Bot,
       icon: '/assets/icons/0.svg',
 
@@ -78,12 +78,12 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/',
+          url: '/',
         },
         {
           label: 'Add to server',
           icon: <PlusIcon />,
-          url: 'https://discord.com/',
+          url: '/',
           target: '_blank',
         },
       ],
@@ -99,14 +99,14 @@ export const projects: Project[] = (
         {
           label: 'Game',
           icon: <PlusIcon />,
-          url: 'https://discord.gg/',
+          url: '/',
           target: '_blank',
         },
       ],
     },
 
     {
-      name: 'F',
+      name: 'Library',
       description:
         '🔎 Library',
       type: ProjectType.Library,
@@ -115,7 +115,7 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/?',
+          url: '/',
         },
         {
           label: 'Docs',
@@ -126,16 +126,16 @@ export const projects: Project[] = (
     },
 
     {
-      name: 'TF',
+      name: 'My Website',
       description:
-        '🥴 wtf',
+        '🥴',
       type: ProjectType.Website,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/schmuvius/d',
+          url: '/',
         },
       ],
     },
@@ -149,12 +149,12 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/schmuvius/bepaint',
+          url: '/',
         },
         {
           label: 'Docs',
           icon: <FileTextIcon />,
-          url: 'https://github.com/tresabhi/bepaint?tab=readme-ov-file#documentation',
+          url: '/documentation',
         },
       ],
     },
@@ -168,14 +168,14 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/tresabhi/scripts',
+          url: '/scripts',
         },
       ],
     },
 
     {
-      name: 'Bedrock Launcher',
-      description: '⛏️ An unofficial Minecraft Bedrock for Windows launcher',
+      name: 'B',
+      description: '⛏️ ',
       type: ProjectType.App,
       icon: '/assets/icons/bedrock-launcher.png',
 
@@ -183,154 +183,154 @@ export const projects: Project[] = (
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/BedrockLauncher/BedrockLauncher',
+          url: '/',
         },
         {
           label: 'Website',
           icon: <GlobeIcon />,
-          url: 'http://bedrocklauncher.github.io/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://github.com/bedrockLauncher/BedrockLauncher/releases/latest/download/BedrockLauncherSetup.exe',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'Corsa',
-      description: '🍁 A set of packs to breath new life into Minecraft',
+      name: 'C',
+      description: '🍁 ',
       type: ProjectType.ResourcePack,
       icon: '/assets/icons/corsa.png',
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/corsa-pack/',
+          url: '/',
           target: '_blank',
         },
       ],
     },
 
     {
-      name: 'Music Pause Remover',
-      description: '🎵 Removes the long pauses between music in Minecraft',
+      name: 'Music',
+      description: '🎵 ',
       type: ProjectType.ResourcePack,
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/music-pause-remover-pack/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://dl.mcpedl.com/texturepacks/5016/Music-Pause-Remover_1613938168.mcpack',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'Achievement Get All',
-      description: '🏆 Easily get all the Achievements in Minecraft',
+      name: 'A',
+      description: '🏆',
       type: ProjectType.ResourcePack,
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/achievement-get-all/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://dl.mcpedl.com/worlds/10946/Acheivment-Get-All_1610124113.mcworld',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'Flucky',
-      description: '🎲 Randomly rotates many different block textures',
+      name: 'F',
+      description: '🎲 ',
       type: ProjectType.ResourcePack,
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/flucky-pack/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://dl.mcpedl.com/texturepacks/3715/Fluky_1604452251.mcpack',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'KLOW',
+      name: 'W',
       description:
-        '👑 Kinda Like Over World turns the nether into the overworld',
+        '👑 ',
       type: ProjectType.ResourcePack,
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/klow-pack/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://dl.mcpedl.com/texturepacks/2678/KLOW_1598303758.mcpack',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'Caramel PVP',
-      description: '⚔️ A streamlined PVP resource pack for Minecraft',
+      name: 'C',
+      description: '⚔️ ',
       type: ProjectType.ResourcePack,
 
       links: [
         {
-          label: 'MCPEDL',
+          label: 'MC',
           icon: <ArchiveIcon />,
-          url: 'https://mcpedl.com/pvp-lite/',
+          url: '/',
           target: '_blank',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://dl.mcpedl.com/texturepacks/2694/Caramel_1606766519.mcpack',
+          url: '/',
         },
       ],
     },
 
     {
-      name: 'Procrasti8x8',
-      description: '🔆 An 8x8 recreation of the Minecraft Vanilla textures',
+      name: 'P',
+      description: '🔆 ',
       type: ProjectType.ResourcePack,
 
       links: [
         {
           label: 'GitHub',
           icon: <GitHubLogoIcon />,
-          url: 'https://github.com/ProcrastinationNation/Procrasti8x8',
+          url: '/',
         },
         {
           label: 'Download',
           icon: <DownloadIcon />,
-          url: 'https://github.com/ProcrastinationNation/Procrasti8x8/archive/refs/heads/master.zip',
+          url: '/',
         },
       ],
     },
